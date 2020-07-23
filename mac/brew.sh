@@ -40,6 +40,7 @@ brew install grep
 brew install node
 
 # Install useful binaries.
+brew install z
 brew install ack
 brew install autojump
 brew install ffmpeg
@@ -82,6 +83,9 @@ brew cask install slack
 brew cask install spotify
 # brew cask install textexpander
 # brew cask install tower
+
+# Dev
+brew cask install kite
 
 # Remove outdated versions from the cellar.
 brew cleanup
