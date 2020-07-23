@@ -58,6 +58,10 @@ brew install tree
 brew install vbindiff
 brew install youtube-dl
 
+# Dev binaries:
+brew install pyenv # python version management
+brew install pyenv-virtualenvwrapper # python dependencies management wrapper
+
 # Installs Casks Fonts and preferred font
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
@@ -85,8 +89,9 @@ brew cask install spotify
 # brew cask install tower
 brew cask install virtualbox
 
-# Dev
+# Dev casks
 brew cask install kite
+brew cask install boostnote
 
 # Useful Quick Look plugins for developers
 # Seen on [mischah's](https://github.com/mischah/dotfiles/blob/my-custom-dotfiles/Caskfile) dotfiles

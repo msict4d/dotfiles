@@ -48,3 +48,39 @@ if command -v brew >/dev/null 2>&1; then
 	# Load rupa's z if installed
 	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 fi
+
+# Python:
+
+# 2020-07-24
+# ---
+# virtualenvwrapper
+# --
+
+# Option 1 (uncomment to use): This will tell virtualenvwrapper to use the Homebrew installation of Python 2 and
+# virtualenv. If you do not specify VIRTUALENVWRAPPER_PYTHON and  
+# VIRTUALENVWRAPPER_VIRTUALENV, you will need to install virtualenv and virtualenvwrapper
+# in each environment you plan to invoke virtualenvwrapper commands (e.g. mkvirtualenv).
+
+
+init_virtualenvwrapper() { # added 2020-07-18
+  export VENV_FOLDER=/Volumes/Data/Dev-Dependencies/Python/
+  export WORKON_HOME=$VENV_FOLDER
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+  export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+}
+
+init_virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Option 2: Use pyenv and pyenv-virtualenvwrapper (will install virtualenvwrapper if not found and initialize it)
+
+# set up pyenv #
+# --
+# Commenting out `eval "$(pyenv init -)"` and python related functions in 'env/functions.sh'
+# file should revert the system back to the system-wide installation of Python installed 
+# via Homebrew.
+
+eval "$(pyenv init -)"
+
+# default to Python 3.8.2
+# python3.latest

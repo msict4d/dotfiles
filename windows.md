@@ -15,7 +15,7 @@ What this does:
 3. Sets npm permissions 
 4. Installs npm clis (see [npm.sh](shared/npm.sh) for a list of installed clis)
 5. Create symlinks for dotfiles
-6. Create hardlinks for Auto Hot Key startup scripts.
+6. Create hard links for Auto Hot Key startup scripts.
 
 Regarding Auto Hot Keys: 
 

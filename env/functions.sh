@@ -181,3 +181,54 @@ function dlmp3 () {
 function dlmp4 () {
   youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1
 }
+
+# Python:
+
+# 2020-07-24:
+
+python2.latest() {
+  pyenv shell 2.7.17
+  pyenv virtualenvwrapper
+}
+
+python3.latest() {
+  pyenv shell 3.8.2
+  pyenv virtualenvwrapper
+}
+
+# Save python -V output in a variable
+pyversion() {
+  version=$(python --version 2>&1) # needs redirect because defaults to stderr
+  echo $version
+}
+
+# helper to add underscore to a string
+add.underscore() {
+  str=$1
+  echo ${str// /_}
+}
+
+# Returns Python version with underscore
+add.underscore.pyversion() {
+  pyv=$(pyversion)
+  add.underscore $pyv
+}
+
+# Redefines $WORKON_HOME to isolate virtual environments by python version:
+# TODO 2: Refactor to DRY with if statement
+
+py3_venv() {
+  # default to Python 3
+  python3.latest
+  export WORKON_HOME=$VENV_FOLDER/$(add.underscore.pyversion)
+  echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
+  mkvirtualenv test_$(pyenv shell)_venv
+}
+
+py2_venv() {
+  # default to Python 2
+  python2.latest
+  export WORKON_HOME=$VENV_FOLDER/$(add.underscore.pyversion)
+  echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
+  mkvirtualenv test_$(pyenv shell)_venv
+}

@@ -35,3 +35,6 @@ export GPG_TTY=$(tty);
 
 # Dev Projects folder
 export DEV="/Volumes/Data/Dropbox/Dev"
+
+# userpath
+export PATH="$PATH:/Users/Mass/.local/bin"
