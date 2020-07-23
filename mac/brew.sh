@@ -83,9 +83,16 @@ brew cask install slack
 brew cask install spotify
 # brew cask install textexpander
 # brew cask install tower
+brew cask install virtualbox
 
 # Dev
 brew cask install kite
+
+# Useful Quick Look plugins for developers
+# Seen on [mischah's](https://github.com/mischah/dotfiles/blob/my-custom-dotfiles/Caskfile) dotfiles
+# Consult [this repo](https://github.com/sindresorhus/quick-look-plugins) for more info
+
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize suspicious-package quicklookase qlvideo
 
 # Remove outdated versions from the cellar.
 brew cleanup

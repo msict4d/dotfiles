@@ -671,6 +671,21 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 
+#---
+
+# Quick Look:
+# Consult [this repo](https://github.com/sindresorhus/quick-look-plugins) for more info
+# Catalina notes
+# To get plugins working in Catalina, you will need to remove the quarantine attribute.
+
+#Run this to see the attributes:
+
+xattr -r ~/Library/QuickLook
+
+#And run this to remove the attributes:
+
+xattr -d -r com.apple.quarantine ~/Library/QuickLook
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
