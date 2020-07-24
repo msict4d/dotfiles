@@ -83,7 +83,7 @@ alias path='echo -e ${PATH//:/\\n}'
 # CUSTOM ALIASES
 ##################
 # Source .zshrc, which updates all other commands
-alias s="source ~/.zshrc"
+alias src="source ~/.zshrc"
 
 # npm run aliases
 # alias run="npm run"

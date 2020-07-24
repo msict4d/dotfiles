@@ -93,6 +93,9 @@ brew cask install virtualbox
 brew cask install kite
 brew cask install boostnote
 
+# Brew GUI
+brew cask install cakebrew
+
 # Useful Quick Look plugins for developers
 # Seen on [mischah's](https://github.com/mischah/dotfiles/blob/my-custom-dotfiles/Caskfile) dotfiles
 # Consult [this repo](https://github.com/sindresorhus/quick-look-plugins) for more info

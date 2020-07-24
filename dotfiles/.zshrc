@@ -65,6 +65,7 @@ fi
 init_virtualenvwrapper() { # added 2020-07-18
   export VENV_FOLDER=/Volumes/Data/Dev-Dependencies/Python/Virtualenvs/
   export WORKON_HOME=$VENV_FOLDER
+  export PROJECT_HOME=/Volumes/Data/Dropbox/Dev/Python/Projects
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 }
@@ -84,3 +85,4 @@ eval "$(pyenv init -)"
 
 # default to Python 3.8.2
 # python3.latest
+

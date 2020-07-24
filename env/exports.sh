@@ -38,3 +38,6 @@ export DEV="/Volumes/Data/Dropbox/Dev"
 
 # userpath
 export PATH="$PATH:/Users/Mass/.local/bin"
+
+# Find brew utilities in /user/local/sbin
+export PATH="/usr/local/sbin:$PATH"
