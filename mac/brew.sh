@@ -47,6 +47,7 @@ brew install task
 brew install jq
 brew install tmux
 brew install z
+brew install thefuck
 brew install ack
 brew install autojump
 brew install ffmpeg

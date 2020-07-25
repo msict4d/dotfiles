@@ -86,3 +86,5 @@ eval "$(pyenv init -)"
 # default to Python 3.8.2
 # python3.latest
 
+# WTF, I just discovered this
+eval $(thefuck --alias)
