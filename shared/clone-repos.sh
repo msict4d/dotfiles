@@ -1,15 +1,17 @@
 #!/bin/bash
 
 # Change this value your custom location
-CLONE_PATH='/Volumes/Data/Dropbox/Dev/GitHub/'
+CLONE_PATH=$GITHUB_FOLDER
 
 function clone () {
 	# CD to folder where git repos are kept
-	cd $HOME/$CLONE_PATH
+	cd $CLONE_PATH
 
   echo "Cloning repositories"
 
   # Open source projects
+    # python
+    git clone https://github.com/vinta/awesome-python.git
 
   # Blog
 
