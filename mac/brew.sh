@@ -40,6 +40,12 @@ brew install grep
 brew install node
 
 # Install useful binaries.
+brew install htop
+brew install tldr
+brew install ncdu
+brew install task
+brew install jq
+brew install tmux
 brew install z
 brew install ack
 brew install autojump

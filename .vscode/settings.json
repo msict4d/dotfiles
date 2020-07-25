@@ -6,5 +6,6 @@
         "markdown",
         "latex",
         "plaintext"
-    ]
+    ],
+    "python.pythonPath": "/Users/mass/.pyenv/versions/3.8.2/bin/python"
 }
