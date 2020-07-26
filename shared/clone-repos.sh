@@ -12,6 +12,7 @@ function clone () {
   # Open source projects
     # python
     git clone https://github.com/vinta/awesome-python.git
+    git clone https://github.com/trimstray/the-book-of-secret-knowledge.git
 
   # Blog
 

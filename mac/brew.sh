@@ -60,6 +60,7 @@ brew install pigz
 brew install pv
 brew install rsync
 brew install rename
+brew install shellcheck
 brew install ssh-copy-id
 brew install tree
 brew install vbindiff

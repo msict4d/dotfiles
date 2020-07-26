@@ -7,7 +7,7 @@ sudo apt update && sudo apt upgrade -y
 source windows/apt.sh
 
 # Set npm permissions and install npm binaries
-# source shared/npm.sh
+source shared/npm.sh
 
 # Create symlinks for dotfiles
 source link-dotfiles.sh

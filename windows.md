@@ -1,4 +1,4 @@
-# WIndows installation instructions 
+# Windows installation instructions 
 
 ## Enable Windows Subsystem for Linux (WSL)
 
@@ -12,7 +12,7 @@ What this does:
 
 1. Updates apt 
 2. Installs Node and other binaries. (See [`apt.sh`](windows/apt.sh))
-3. Sets npm permissions 
+3. Sets npm permissions
 4. Installs npm clis (see [npm.sh](shared/npm.sh) for a list of installed clis)
 5. Create symlinks for dotfiles
 6. Create hard links for Auto Hot Key startup scripts.

@@ -11,7 +11,7 @@ copy_dev_project() {
   #!/usr/bin/env bash
   set -e # always immediately exit upon error
 
-  PROJECT_DIR=$1 || $(pwd) # take the provided folder if argument given
+  PROJECT_DIR=$1 || $PWD # take the provided folder if argument given
 
   # directory config. ending slashes are important!
   src_dir=$CURRENT_DEV_PROJECT
@@ -29,6 +29,6 @@ copy_dev_project() {
 
 clean() {
   # Remove all files including hidden .files
-  rm -vrf $(pwd)/*
-  rm -vrf $(pwd)/.*
+  rm -vrf "${PWD:?}/"* # this form ensures it never expand to root folder
+  rm -vrf "${PWD:?}/".*
 }

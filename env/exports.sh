@@ -24,6 +24,7 @@ export LANG='en_US.UTF-8';
 export LC_ALL='en_US.UTF-8';
 
 # Highlight section titles in manual pages.
+yellow="#FFFF00"
 export LESS_TERMCAP_md="${yellow}";
 
 # Don’t clear the screen after quitting a manual page.
@@ -31,15 +32,16 @@ export MANPAGER='less -X';
 
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
-export GPG_TTY=$(tty);
+export GPG_TTY;
+GPG_TTY=$(tty);
 
 # Dev Projects folder
-export DEV="/Volumes/Data/Dropbox/Dev/"
+export DEV="/Volumes/Data/Dropbox/Dev/";
 
-export GITHUB_FOLDER="$DEV/Github/"
+export GITHUB_FOLDER="$DEV/Github/";
 
 # userpath
-export PATH="$PATH:/Users/Mass/.local/bin"
+export PATH="$PATH:/Users/Mass/.local/bin";
 
 # Find brew utilities in /user/local/sbin
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH";
