@@ -106,4 +106,7 @@ alias t=trash
 # alias gulp='npx gulp'
 
 # Check opened TCP Ports
-alias openedports="sudo netstat -plunt"
+alias openedports="sudo netstat -plunt" # TODO 3: FIX 'unknown or uninstrumented protocol error' 
+
+# Record terminal session in a text file using `script`
+alias script='script -a terminal_session_$(timestamp)'

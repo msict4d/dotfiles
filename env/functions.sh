@@ -200,19 +200,19 @@ python3.latest() {
 # Save python -V output in a variable
 pyversion() {
   version=$(python --version 2>&1) # needs redirect because defaults to stderr
-  echo $version
+  echo "$version"
 }
 
 # helper to add underscore to a string
 add.underscore() {
   str=$1
-  echo ${str// /_}
+  echo "${str// /_}"
 }
 
 # Returns Python version with underscore
 add.underscore.pyversion() {
   pyv=$(pyversion)
-  add.underscore $pyv
+  add.underscore "$pyv"
 }
 
 # Redefines $WORKON_HOME to isolate virtual environments by python version:
@@ -221,15 +221,22 @@ add.underscore.pyversion() {
 py3_venv() {
   # default to Python 3
   python3.latest
-  export WORKON_HOME=$VENV_FOLDER/$(add.underscore.pyversion)
+  export WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
   echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
-  mkvirtualenv test_$(pyenv shell)_venv
+  mkvirtualenv test_"$(pyenv shell)"_venv
 }
 
 py2_venv() {
   # default to Python 2
   python2.latest
-  export WORKON_HOME=$VENV_FOLDER/$(add.underscore.pyversion)
+  export WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
   echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
-  mkvirtualenv test_$(pyenv shell)_venv
+  mkvirtualenv test_"$(pyenv shell)"_venv
+}
+
+# Function to echo the current time
+### timestamp()
+# Just echoes the formatted time
+timestamp() {
+  date "+%Y-%m-%d_%H:%M:%S" 
 }
