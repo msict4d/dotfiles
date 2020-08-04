@@ -163,6 +163,7 @@ function tre() {
 # ################################
 # Crappy functions written by Zell
 # ################################
+
 # Find port in use (used to kill pid)
 function findpid () {
   lsof -i tcp:$@

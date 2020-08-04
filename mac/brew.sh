@@ -79,6 +79,7 @@ brew cask install alfred
 # brew cask install beamer
 brew cask install dash
 brew cask install dropbox
+brew cask install evernote
 # brew cask install homebrew/cask-versions/firefox-nightly # Nightly
 # brew cask install google-chrome #Chrome
 # brew cask install homebrew/cask-versions/google-chrome-canary # Chrome Canary
