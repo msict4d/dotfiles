@@ -38,6 +38,9 @@ GPG_TTY=$(tty);
 # Dev Projects folder
 export DEV="/Volumes/Data/Dropbox/Dev/";
 
+# Current Dev Project folder
+export CURRENT_DEV_PROJECT="/Volumes/Data/Dev_Workspace/Current_Project/"
+
 # Git repos folder
 export GITHUB_FOLDER="$DEV/Github/";
 

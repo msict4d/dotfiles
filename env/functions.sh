@@ -240,3 +240,10 @@ py2_venv() {
 timestamp() {
   date "+%Y-%m-%d_%H:%M:%S" 
 }
+
+# Get current directory name without full path
+### here()
+here() {
+  local here=${PWD##*/}
+  printf '%q\n' "$here"
+}
