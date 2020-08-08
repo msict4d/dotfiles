@@ -7,5 +7,13 @@
         "latex",
         "plaintext"
     ],
-    "python.pythonPath": "/Users/mass/.pyenv/versions/3.8.2/bin/python"
+    "python.pythonPath": "/Users/mass/.pyenv/versions/3.8.2/bin/python",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "explorerExclude.backup": null
 }

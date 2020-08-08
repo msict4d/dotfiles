@@ -77,6 +77,7 @@ brew cask install font-fira-code
 ## Apps I use
 brew cask install alfred
 # brew cask install beamer
+brew cask install calibre
 brew cask install dash
 brew cask install dropbox
 brew cask install evernote
