@@ -35,40 +35,56 @@ brew install gnu-sed
 # Install `wget` with IRI support.
 brew install wget #--with-iri # FIX 1 option generates error
 
-brew install gmp
-brew install grep
-brew install node
 
 # Install useful binaries.
+# system monitoring
 brew install htop
-brew install tldr
-brew install ncdu
-brew install task
-brew install jq
-brew install tmux
-brew install z
-brew install thefuck
+brew install osx-cpu-temp # bpytop dependency
+
+# Productivity
 brew install ack
 brew install autojump
-brew install ffmpeg
+brew install ncdu
+brew install task
+brew install thefuck
+brew install tldr
+brew install z
+
+
+# Dev
+# Docker
+brew install docker-completion
+brew install docker-compose-completion
+brew install docker-machine-completion
 brew install git
 brew install git-lfs
 brew install github/gh/gh
-# brew install imagemagick --with-webp # FIX 2 option generates error
+brew install gmp
+brew install grep
+brew install jq
+brew install kubectl # Kubernetes CLI
+brew install minikube # runs a single-node Kubernetes cluster inside a VM
+brew install node
+# Python:
+brew install python3
+brew install pyenv # python version management
+brew install pyenv-virtualenvwrapper # python dependencies management wrapper
+brew install shellcheck
+brew install ssh-copy-id
+brew install tmux
+
+
+# Utilities
+brew install ffmpeg
+# brew install imagemagick --with-webp # FIX 2: option generates error
 brew install p7zip
 brew install pigz
 brew install pv
 brew install rsync
 brew install rename
-brew install shellcheck
-brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install youtube-dl
-
-# Dev binaries:
-brew install pyenv # python version management
-brew install pyenv-virtualenvwrapper # python dependencies management wrapper
 
 # Installs Casks Fonts and preferred font
 brew tap homebrew/cask-fonts
@@ -78,17 +94,14 @@ brew cask install font-fira-code
 brew cask install alfred
 # brew cask install beamer
 brew cask install calibre
-brew cask install dash
 brew cask install dropbox
 brew cask install evernote
 # brew cask install homebrew/cask-versions/firefox-nightly # Nightly
 # brew cask install google-chrome #Chrome
 # brew cask install homebrew/cask-versions/google-chrome-canary # Chrome Canary
 brew cask install grammarly
-brew cask install iterm2
 # brew cask install kap
 # brew cask install keycastr
-# brew cask install mongodb-compass
 # brew cask install notion
 brew cask install sketch
 brew cask install skitch
@@ -96,12 +109,20 @@ brew cask install skitch
 brew cask install slack
 brew cask install spotify
 # brew cask install textexpander
-# brew cask install tower
-brew cask install virtualbox
+
+# System utilities
 
 # Dev casks
-brew cask install kite
+# brew cask install androidtool
 brew cask install boostnote
+brew cask install dash
+brew cask install docker # Docker desktop
+brew cask install iterm2
+brew cask install kite
+# MongoDB
+# brew cask install mongodb-compass
+# brew cask install tower
+brew cask install virtualbox
 
 # Brew GUI
 brew cask install cakebrew

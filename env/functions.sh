@@ -166,21 +166,21 @@ function tre() {
 
 # Find port in use (used to kill pid)
 function findpid () {
-  lsof -i tcp:$@
+  lsof -i tcp:"$*"
 }
 
 # USed to kill pid
 function killpid () {
-  kill -9 $@
+  kill -9 "$@"
 }
 
 # Downloads a .mp3 file
 function dlmp3 () {
-  youtube-dl --extract-audio --audio-format mp3 $1
+  youtube-dl --extract-audio --audio-format mp3 "$1"
 }
 
 function dlmp4 () {
-  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' $1
+  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
 }
 
 # Python:
@@ -217,7 +217,6 @@ add.underscore.pyversion() {
 
 # Redefines $WORKON_HOME to isolate virtual environments by python version:
 # TODO 2: Refactor to DRY with if statement
-
 py3_venv() {
   # default to Python 3
   python3.latest
