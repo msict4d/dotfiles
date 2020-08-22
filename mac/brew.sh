@@ -69,6 +69,7 @@ brew install node
 brew install python3
 brew install pyenv # python version management
 brew install pyenv-virtualenvwrapper # python dependencies management wrapper
+brew install ruby
 brew install shellcheck
 brew install ssh-copy-id
 brew install tmux
@@ -117,6 +118,7 @@ brew cask install spotify
 brew cask install boostnote
 brew cask install dash
 brew cask install docker # Docker desktop
+brew cask install hyper
 brew cask install iterm2
 brew cask install kite
 # MongoDB

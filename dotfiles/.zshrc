@@ -2,7 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.
-ZSH_THEME="avit"
+ZSH_THEME="spaceship"
 
 # Plugins
 # plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -89,3 +89,9 @@ eval "$(pyenv init -)"
 
 # WTF, I just discovered this
 eval $(thefuck --alias)
+
+# Ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
