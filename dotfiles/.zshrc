@@ -2,7 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.
-ZSH_THEME="spaceship"
+ZSH_THEME="agnoster"
 
 # Plugins
 # plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -95,3 +95,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
+
+# Starship command prompt
+eval "$(starship init zsh)"

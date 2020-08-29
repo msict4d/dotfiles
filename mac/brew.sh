@@ -45,6 +45,7 @@ brew install osx-cpu-temp # bpytop dependency
 brew install ack
 brew install autojump
 brew install ncdu
+brew install starship # Command prompt
 brew install task
 brew install thefuck
 brew install tldr
@@ -118,8 +119,10 @@ brew cask install spotify
 brew cask install boostnote
 brew cask install dash
 brew cask install docker # Docker desktop
+# Terminal
 brew cask install hyper
 brew cask install iterm2
+# Python-Javascript
 brew cask install kite
 # MongoDB
 # brew cask install mongodb-compass
