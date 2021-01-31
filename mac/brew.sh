@@ -3,7 +3,11 @@
 # Install Homebrew (if not installed)
 echo "Installing Homebrew."
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add Homebrew to PATH:
+echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/mass/.zprofile
+eval $(/opt/homebrew/bin/brew shellenv)
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -63,8 +67,8 @@ brew install github/gh/gh
 brew install gmp
 brew install grep
 brew install jq
-brew install kubectl # Kubernetes CLI
-brew install minikube # runs a single-node Kubernetes cluster inside a VM
+# brew install kubectl # Kubernetes CLI
+# brew install minikube # runs a single-node Kubernetes cluster inside a VM
 brew install node
 # Python:
 brew install python3
@@ -93,11 +97,11 @@ brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 
 ## Apps I use
-brew install --cask alfred
+# brew install --cask alfred
 # brew install --cask beamer
 brew install --cask calibre
-brew install --cask dropbox
-brew install --cask evernote
+# brew install --cask dropbox
+# brew install --cask evernote
 # brew install --cask homebrew/cask-versions/firefox-nightly # Nightly
 # brew install --cask google-chrome #Chrome
 # brew install --cask homebrew/cask-versions/google-chrome-canary # Chrome Canary
@@ -106,10 +110,10 @@ brew install --cask grammarly
 # brew install --cask keycastr
 # brew install --cask notion
 brew install --cask obsidian
-brew install --cask sketch
-brew install --cask skitch
+# brew install --cask sketch
+# brew install --cask skitch
 # brew install --cask skype
-brew install --cask slack
+# brew install --cask slack
 brew install --cask spotify
 # brew install --cask textexpander
 
@@ -117,21 +121,21 @@ brew install --cask spotify
 
 # Dev casks
 # brew install --cask androidtool
-brew install --cask boostnote
-brew install --cask dash
+# brew install --cask boostnote
+# brew install --cask dash
 brew install --cask docker # Docker desktop
 # Terminal
-brew install --cask hyper
+# brew install --cask hyper
 brew install --cask iterm2
 # Python-Javascript
 brew install --cask kite
 # MongoDB
 # brew install --cask mongodb-compass
 # brew install --cask tower
-brew install --cask virtualbox
+# brew install --cask virtualbox
 
 # Brew GUI
-brew install --cask cakebrew
+# brew install --cask cakebrew
 
 # Useful Quick Look plugins for developers
 # Seen on [mischah's](https://github.com/mischah/dotfiles/blob/my-custom-dotfiles/Caskfile) dotfiles
