@@ -94,6 +94,7 @@ alias src="source ~/.zshrc"
 
 # Aliases for globally installed npm modules
 alias t=trash
+alias rm=trash
 # alias ncu="npm-check -u"
 
 # Aliases for np

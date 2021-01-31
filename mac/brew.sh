@@ -105,6 +105,7 @@ brew cask install grammarly
 # brew cask install kap
 # brew cask install keycastr
 # brew cask install notion
+brew cask install obsidian
 brew cask install sketch
 brew cask install skitch
 # brew cask install skype
