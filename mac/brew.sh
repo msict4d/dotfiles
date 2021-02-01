@@ -5,9 +5,9 @@ echo "Installing Homebrew."
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Add Homebrew to PATH:
-echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/mass/.zprofile
-eval $(/opt/homebrew/bin/brew shellenv)
+# Add Homebrew to PATH: (Only on Mac with ARM processors e.g M1)
+# echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/mass/.zprofile
+# eval $(/opt/homebrew/bin/brew shellenv)
 
 # Make sure we’re using the latest Homebrew.
 brew update
