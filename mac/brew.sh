@@ -74,6 +74,7 @@ brew install node
 brew install python3
 brew install pyenv # python version management
 brew install pyenv-virtualenvwrapper # python dependencies management wrapper
+
 brew install ruby
 brew install shellcheck
 brew install ssh-copy-id
@@ -81,7 +82,7 @@ brew install tmux
 
 
 # Utilities
-brew install ffmpeg
+# brew install ffmpeg
 # brew install imagemagick --with-webp # FIX 2: option generates error
 brew install p7zip
 brew install pigz
