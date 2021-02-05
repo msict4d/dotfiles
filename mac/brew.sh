@@ -3,7 +3,11 @@
 # Install Homebrew (if not installed)
 echo "Installing Homebrew."
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add Homebrew to PATH: (Only on Mac with ARM processors e.g M1)
+# echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/mass/.zprofile
+# eval $(/opt/homebrew/bin/brew shellenv)
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -63,13 +67,14 @@ brew install github/gh/gh
 brew install gmp
 brew install grep
 brew install jq
-brew install kubectl # Kubernetes CLI
-brew install minikube # runs a single-node Kubernetes cluster inside a VM
+# brew install kubectl # Kubernetes CLI
+# brew install minikube # runs a single-node Kubernetes cluster inside a VM
 brew install node
 # Python:
 brew install python3
 brew install pyenv # python version management
 brew install pyenv-virtualenvwrapper # python dependencies management wrapper
+
 brew install ruby
 brew install shellcheck
 brew install ssh-copy-id
@@ -77,7 +82,7 @@ brew install tmux
 
 
 # Utilities
-brew install ffmpeg
+# brew install ffmpeg
 # brew install imagemagick --with-webp # FIX 2: option generates error
 brew install p7zip
 brew install pigz
@@ -90,54 +95,54 @@ brew install youtube-dl
 
 # Installs Casks Fonts and preferred font
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install --cask font-fira-code
 
 ## Apps I use
-brew cask install alfred
-# brew cask install beamer
-brew cask install calibre
-brew cask install dropbox
-brew cask install evernote
-# brew cask install homebrew/cask-versions/firefox-nightly # Nightly
-# brew cask install google-chrome #Chrome
-# brew cask install homebrew/cask-versions/google-chrome-canary # Chrome Canary
-brew cask install grammarly
-# brew cask install kap
-# brew cask install keycastr
-# brew cask install notion
-brew cask install obsidian
-brew cask install sketch
-brew cask install skitch
-# brew cask install skype
-brew cask install slack
-brew cask install spotify
-# brew cask install textexpander
+# brew install --cask alfred
+# brew install --cask beamer
+brew install --cask calibre
+# brew install --cask dropbox
+# brew install --cask evernote
+# brew install --cask homebrew/cask-versions/firefox-nightly # Nightly
+# brew install --cask google-chrome #Chrome
+# brew install --cask homebrew/cask-versions/google-chrome-canary # Chrome Canary
+brew install --cask grammarly
+# brew install --cask kap
+# brew install --cask keycastr
+# brew install --cask notion
+brew install --cask obsidian
+# brew install --cask sketch
+# brew install --cask skitch
+# brew install --cask skype
+# brew install --cask slack
+brew install --cask spotify
+# brew install --cask textexpander
 
 # System utilities
 
 # Dev casks
-# brew cask install androidtool
-brew cask install boostnote
-brew cask install dash
-brew cask install docker # Docker desktop
+# brew install --cask androidtool
+# brew install --cask boostnote
+# brew install --cask dash
+brew install --cask docker # Docker desktop
 # Terminal
-brew cask install hyper
-brew cask install iterm2
+# brew install --cask hyper
+brew install --cask iterm2
 # Python-Javascript
-brew cask install kite
+brew install --cask kite
 # MongoDB
-# brew cask install mongodb-compass
-# brew cask install tower
-brew cask install virtualbox
+# brew install --cask mongodb-compass
+# brew install --cask tower
+# brew install --cask virtualbox
 
 # Brew GUI
-brew cask install cakebrew
+# brew install --cask cakebrew
 
 # Useful Quick Look plugins for developers
 # Seen on [mischah's](https://github.com/mischah/dotfiles/blob/my-custom-dotfiles/Caskfile) dotfiles
 # Consult [this repo](https://github.com/sindresorhus/quick-look-plugins) for more info
 
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize suspicious-package quicklookase qlvideo
+brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize suspicious-package quicklookase qlvideo
 
 # Remove outdated versions from the cellar.
 brew cleanup
