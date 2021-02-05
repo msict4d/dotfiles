@@ -3,7 +3,7 @@
 # exports
 
 export PYTHON_PROJECT_DIR=$PROJECT_HOME
-export CURRENT_DEV_PROJECT="/Volumes/Data/Dev_Workspace/Current_Project/"
+export CURRENT_DEV_PROJECT=$HOME"/Dev_Workspace/Current_Project/"
 
 # Function to sync two folders using rsync
 ### dsync()
