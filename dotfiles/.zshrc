@@ -35,7 +35,7 @@ if [[ "$MACHINE" == "Linux" ]];then
   source "$PROJECT_ROOT/env/exports.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 elif [[ "$MACHINE" == "Mac" ]]; then
-  PROJECT_ROOT=$DROPBOX'/Dev/GitHub/dotfiles'
+  PROJECT_ROOT=$HOME"/Dropbox/Dev/GitHub/dotfiles"
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-mac.sh"
   source "$PROJECT_ROOT/env/exports.sh"
