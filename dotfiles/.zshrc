@@ -26,9 +26,6 @@ case "${unameOut}" in
 esac
 export MACHINE
 
-# Dropbox folder
-export DROPBOX=$HOME/Dropbox
-
 # Source aliases
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
@@ -68,7 +65,7 @@ fi
 init_virtualenvwrapper() { # modified 2021-01-31
   export VENV_FOLDER=$HOME/Dev_Workspace/Python/Virtualenvs/
   export WORKON_HOME=$VENV_FOLDER
-  export PROJECT_HOME=$DROPBOX/Dev/Python/Projects
+  export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 }
