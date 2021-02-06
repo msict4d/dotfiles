@@ -38,6 +38,12 @@ echo "===================="
 source mac/macos
 
 echo "===================="
+echo "Installing gems"
+echo "===================="
+
+source mac/iterm/gem
+
+echo "===================="
 echo "Setup is done!"
 echo "===================="
 
