@@ -142,7 +142,8 @@ brew install --cask kite
 # Seen on [mischah's](https://github.com/mischah/dotfiles/blob/my-custom-dotfiles/Caskfile) dotfiles
 # Consult [this repo](https://github.com/sindresorhus/quick-look-plugins) for more info
 
-brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize suspicious-package quicklookase qlvideo
+brew install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize apparency quicklookase qlvideo
+brew install --cask suspicious-package
 
 # Remove outdated versions from the cellar.
 brew cleanup
