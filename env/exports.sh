@@ -35,14 +35,17 @@ export MANPAGER='less -X';
 export GPG_TTY;
 GPG_TTY=$(tty);
 
+# Dropbox folder
+export DROPBOX_FOLDER="/Volumes/Data/Dropbox/";
+
 # Dev Projects folder
-export DEV="/Volumes/Data/Dropbox/Dev/";
+export DEV_FOLDER=$DROPBOX_FOLDER"Dev/";
 
 # Current Dev Project folder
-export CURRENT_DEV_PROJECT="/Volumes/Data/Dev_Workspace/Current_Project/"
+export CURRENT_DEV_PROJECT="/Volumes/Data/Dev_Workspace/Current_Project/";
 
 # Git repos folder
-export GITHUB_FOLDER="$DEV/Github/";
+export GITHUB_FOLDER="$DEV/GitHub/";
 
 # userpath
 export PATH="$PATH:/Users/Mass/.local/bin";
