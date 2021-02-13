@@ -102,7 +102,7 @@ brew install --cask font-fira-code
 # brew install --cask beamer
 brew install --cask calibre
 # brew install --cask dropbox
-# brew install --cask evernote
+brew install --cask evernote
 # brew install --cask homebrew/cask-versions/firefox-nightly # Nightly
 # brew install --cask google-chrome #Chrome
 # brew install --cask homebrew/cask-versions/google-chrome-canary # Chrome Canary
@@ -113,7 +113,7 @@ brew install --cask grammarly
 brew install --cask obsidian
 # brew install --cask sketch
 # brew install --cask skitch
-# brew install --cask skype
+brew install --cask skype
 # brew install --cask slack
 brew install --cask spotify
 # brew install --cask textexpander
@@ -122,11 +122,11 @@ brew install --cask spotify
 
 # Dev casks
 # brew install --cask androidtool
-# brew install --cask boostnote
+brew install --cask boostnote
 # brew install --cask dash
 brew install --cask docker # Docker desktop
 # Terminal
-# brew install --cask hyper
+brew install --cask hyper
 brew install --cask iterm2
 # Python-Javascript
 brew install --cask kite
