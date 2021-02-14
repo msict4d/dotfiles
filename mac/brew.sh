@@ -95,7 +95,11 @@ brew install youtube-dl
 
 # Installs Casks Fonts and preferred font
 brew tap homebrew/cask-fonts
-brew install --cask font-fira-code
+brew install font-fira-code --cask
+# Nerd Fonts
+brew install font-3270-nerd-font --cask
+brew install font-hack-nerd-font --cask
+brew install font-firacode-nerd-font --cask
 
 ## Apps I use
 # brew install --cask alfred
