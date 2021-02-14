@@ -91,7 +91,8 @@ eval "$(pyenv init -)"
 eval $(thefuck --alias)
 
 # Ruby
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
+export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
 
 # colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
