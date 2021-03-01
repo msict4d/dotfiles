@@ -61,15 +61,25 @@ brew install z
 brew install docker-completion
 brew install docker-compose-completion
 brew install docker-machine-completion
+# brew install kubectl # Kubernetes CLI
+# brew install minikube # runs a single-node Kubernetes cluster inside a VM
+
+# Git
 brew install git
 brew install git-lfs
 brew install github/gh/gh
+
+# Git-toolbelt
+brew install fzf
+brew tap nvie/tap
+brew install nvie/tap/git-toolbelt
+
 brew install gmp
 brew install grep
 brew install jq
-# brew install kubectl # Kubernetes CLI
-# brew install minikube # runs a single-node Kubernetes cluster inside a VM
+
 brew install node
+
 # Python:
 brew install python3
 brew install pyenv # python version management
@@ -79,6 +89,7 @@ brew install ruby
 brew install shellcheck
 brew install ssh-copy-id
 brew install tmux
+
 
 
 # Utilities
