@@ -183,18 +183,28 @@ function dlmp4 () {
   youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
 }
 
-# Python:
+# Python (Homebrew):
 
-# 2020-07-24:
+# Pyenv helper functions (modified 2021-03-07):
 
 python2.latest() {
-  pyenv shell 2.7.17
+  pyenv shell 2.7.18
+  pip install virtualenv virtualenvwrapper
   pyenv virtualenvwrapper
+  echo "Set Python version to $(pyversion)"
+}
+
+python3.base() {
+  pyenv shell 3.8.6
+  pip install virtualenv virtualenvwrapper
+  pyenv virtualenvwrapper
+  echo "Set Python version to $(pyversion)"
 }
 
 python3.latest() {
-  pyenv shell 3.8.2
+  pyenv shell system
   pyenv virtualenvwrapper
+  echo "Set Python version to latest: $(pyversion)"
 }
 
 # Save python -V output in a variable
@@ -215,14 +225,17 @@ add.underscore.pyversion() {
   add.underscore "$pyv"
 }
 
+# pyenv and pyenv-virtualenvwrapper related functions
 # Redefines $WORKON_HOME to isolate virtual environments by python version:
 # TODO 2: Refactor to DRY with if statement
 py3_venv() {
   # default to Python 3
-  python3.latest
+  python3.latest # change to python3.base if needed and source functions.sh and $SHELL to use
   export WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
   echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
+  echo "Creating test environment with $(pyversion)"
   mkvirtualenv test_"$(pyenv shell)"_venv
+  echo "Done."
 }
 
 py2_venv() {
@@ -230,7 +243,9 @@ py2_venv() {
   python2.latest
   export WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
   echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
+  echo "Creating test environment with $(pyversion)"
   mkvirtualenv test_"$(pyenv shell)"_venv
+  echo "Done."
 }
 
 # Function to echo the current time

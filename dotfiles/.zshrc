@@ -56,17 +56,17 @@ fi
 # virtualenvwrapper
 # --
 
-# Option 1 (uncomment to use): This will tell virtualenvwrapper to use the Homebrew installation of Python 2 and
+# Option 1 (uncomment to use): This will tell virtualenvwrapper to use the Homebrew installation of Python and
 # virtualenv. If you do not specify VIRTUALENVWRAPPER_PYTHON and  
 # VIRTUALENVWRAPPER_VIRTUALENV, you will need to install virtualenv and virtualenvwrapper
 # in each environment you plan to invoke virtualenvwrapper commands (e.g. mkvirtualenv).
 
 
-init_virtualenvwrapper() { # modified 2021-01-31
+init_virtualenvwrapper() { # modified 2021-03-07
   export VENV_FOLDER=$HOME/Dev_Workspace/Python/Virtualenvs/
-  export WORKON_HOME=$VENV_FOLDER
+  export WORKON_HOME=$VENV_FOLDER/default
   export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 }
 
@@ -74,7 +74,7 @@ init_virtualenvwrapper
 
 source "/usr/local/bin/virtualenvwrapper.sh"
 
-# Option 2: Use pyenv and pyenv-virtualenvwrapper (will install virtualenvwrapper if not found and initialize it)
+# Option 2: Use pyenv and pyenv-virtualenvwrapper
 
 # set up pyenv #
 # --
@@ -84,7 +84,7 @@ source "/usr/local/bin/virtualenvwrapper.sh"
 
 eval "$(pyenv init -)"
 
-# default to Python 3.8.2
+# default to latest Python 3 installed with Homebrew
 # python3.latest
 
 # WTF, I just discovered this
