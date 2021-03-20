@@ -41,11 +41,15 @@ export DROPBOX_FOLDER="/Volumes/Data/Dropbox/";
 # Dev Projects folder
 export DEV_FOLDER=$DROPBOX_FOLDER"Dev/";
 
+# Dev Workspace folder for dev envs
+
+export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace/"
+
 # Current Dev Project folder
-export CURRENT_DEV_PROJECT="/Volumes/Data/Dev_Workspace/Current_Project/";
+export CURRENT_DEV_PROJECT=$DEV_WORKSPACE"Current_Project/";
 
 # Git repos folder
-export GITHUB_FOLDER="$DEV/GitHub/";
+export GITHUB_FOLDER="$DEV_FOLDER/GitHub/";
 
 # userpath
 export PATH="$PATH:/Users/Mass/.local/bin";

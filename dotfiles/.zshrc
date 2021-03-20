@@ -63,7 +63,7 @@ fi
 
 
 init_virtualenvwrapper() { # modified 2021-03-07
-  export VENV_FOLDER=$HOME/Dev_Workspace/Python/Virtualenvs/
+  export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
   export WORKON_HOME=$VENV_FOLDER/default
   export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
