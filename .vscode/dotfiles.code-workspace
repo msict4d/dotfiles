@@ -7,6 +7,7 @@
 	"settings": {
 		"workbench.colorTheme": "Dracula Soft",
 		"workbench.iconTheme": "eq-material-theme-icons",
-		"workbench.preferredDarkColorTheme": "Dracula"
+		"workbench.preferredDarkColorTheme": "Dracula",
+		"terminal.integrated.splitCwd": "workspaceRoot"
 	}
 }
