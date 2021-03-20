@@ -174,13 +174,14 @@ function killpid () {
   kill -9 "$@"
 }
 
-# Downloads a .mp3 file
 function dlmp3 () {
-  youtube-dl --extract-audio --audio-format mp3 "$1"
+  song="$1"
+  youtube-dl -x --extract-audio --audio-format mp3 "ytsearch:$song"
 }
-
+# Function to downloads a .mp4 file
 function dlmp4 () {
-  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "$1"
+  video="$1"
+  youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "ytseacrh:$video"
 }
 
 # Python (Homebrew):
