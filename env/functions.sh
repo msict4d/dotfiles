@@ -202,8 +202,11 @@ python3.base() {
   echo "Set Python version to $(pyversion)"
 }
 
+# This function requires https://github.com/momo-lab/pyenv-install-latest
 python3.latest() {
-  pyenv shell system
+  pyenv install-latest	
+  pyenv shell "$(pyenv install-latest --print)"
+  pip install virtualenv virtualenvwrapper
   pyenv virtualenvwrapper
   echo "Set Python version to latest: $(pyversion)"
 }
