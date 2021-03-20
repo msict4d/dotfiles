@@ -56,17 +56,17 @@ fi
 # virtualenvwrapper
 # --
 
-# Option 1 (uncomment to use): This will tell virtualenvwrapper to use the Homebrew installation of Python 2 and
+# Option 1 (uncomment to use): This will tell virtualenvwrapper to use the Homebrew installation of Python and
 # virtualenv. If you do not specify VIRTUALENVWRAPPER_PYTHON and  
 # VIRTUALENVWRAPPER_VIRTUALENV, you will need to install virtualenv and virtualenvwrapper
 # in each environment you plan to invoke virtualenvwrapper commands (e.g. mkvirtualenv).
 
 
-init_virtualenvwrapper() { # modified 2021-01-31
+init_virtualenvwrapper() { # modified 2021-03-07
   export VENV_FOLDER=$HOME/Dev_Workspace/Python/Virtualenvs/
-  export WORKON_HOME=$VENV_FOLDER
+  export WORKON_HOME=$VENV_FOLDER/default
   export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 }
 
@@ -74,7 +74,7 @@ init_virtualenvwrapper
 
 source "/usr/local/bin/virtualenvwrapper.sh"
 
-# Option 2: Use pyenv and pyenv-virtualenvwrapper (will install virtualenvwrapper if not found and initialize it)
+# Option 2: Use pyenv and pyenv-virtualenvwrapper
 
 # set up pyenv #
 # --
@@ -84,17 +84,37 @@ source "/usr/local/bin/virtualenvwrapper.sh"
 
 eval "$(pyenv init -)"
 
-# default to Python 3.8.2
+# default to latest Python 3 installed with Homebrew
 # python3.latest
 
 # WTF, I just discovered this
 eval $(thefuck --alias)
 
 # Ruby
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
+export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
 
 # colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
 
 # Starship command prompt
 eval "$(starship init zsh)"
+
+# Anaconda3
+# export PATH="/usr/local/anaconda3/bin:$PATH"  # commented out by conda initialize
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

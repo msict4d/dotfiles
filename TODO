@@ -4,3 +4,4 @@ Todo:
   ☐ TODO 2: Refactor py*_venv functions to DRY with if statement
   ☐ TODO 3: Rearrange mac/brew.sh alphabetically
   ☐ TODO 4: Perform refactors with shellcheck
+  

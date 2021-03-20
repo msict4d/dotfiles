@@ -88,8 +88,10 @@ save_dev_project() {
 }
 
 workon_dev_project() {
-  mkdir $CURRENT_DEV_PROJECT"$(here)"
+  mkdir "$CURRENT_DEV_PROJECT$(here)"
   cp -R "$PWD"/ $CURRENT_DEV_PROJECT"$(here)"
   workspace=$CURRENT_DEV_PROJECT"$(here)"
   echo "Copied the content of dev project to ${workspace}"
+  cd "$workspace"
+  echo "Switched to $(workspace) folder"
 }
