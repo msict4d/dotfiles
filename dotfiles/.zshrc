@@ -26,6 +26,22 @@ case "${unameOut}" in
 esac
 export MACHINE
 
+# Set Dropbox and Dev Workspace folders (Mac)
+export HOSTNAME="$(hostname)"
+
+if [[ "$HOSTNAME" == "dacomp5" ]]
+then
+    # Dropbox folder
+    export DROPBOX_FOLDER="/Volumes/Data/Dropbox/";
+    # Dev Workspace folder for dev envs
+    export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace/"
+else
+    # Dropbox folder
+    export DROPBOX_FOLDER=$HOME"/Dropbox/";
+    # Dev Workspace folder for dev envs
+    export DEV_WORKSPACE=$HOME"/Dev_workspace/"; 
+fi
+
 # Source aliases
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
@@ -35,7 +51,7 @@ if [[ "$MACHINE" == "Linux" ]];then
   source "$PROJECT_ROOT/env/exports.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 elif [[ "$MACHINE" == "Mac" ]]; then
-  PROJECT_ROOT="/Volumes/Data/Dropbox/Dev/GitHub/dotfiles"
+  PROJECT_ROOT=$DROPBOX_FOLDER"/Dev/GitHub/dotfiles"
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-mac.sh"
   source "$PROJECT_ROOT/env/exports.sh"
