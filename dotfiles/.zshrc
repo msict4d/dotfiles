@@ -29,13 +29,13 @@ export MACHINE
 # Source aliases
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
-  PROJECT_ROOT='/mnt/c/Users/Mass/Dev/Github/dotfiles'
+  PROJECT_ROOT='/mnt/c/Users/Mass/Dev/GitHub/dotfiles'
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-linux.sh"
   source "$PROJECT_ROOT/env/exports.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 elif [[ "$MACHINE" == "Mac" ]]; then
-  PROJECT_ROOT=$HOME"/Dropbox/Dev/GitHub/dotfiles"
+  PROJECT_ROOT="/Volumes/Data/Dropbox/Dev/GitHub/dotfiles"
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-mac.sh"
   source "$PROJECT_ROOT/env/exports.sh"
@@ -63,7 +63,7 @@ fi
 
 
 init_virtualenvwrapper() { # modified 2021-03-07
-  export VENV_FOLDER=$HOME/Dev_Workspace/Python/Virtualenvs/
+  export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
   export WORKON_HOME=$VENV_FOLDER/default
   export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
