@@ -106,13 +106,6 @@ eval "$(pyenv init -)"
 # WTF, I just discovered this
 eval $(thefuck --alias)
 
-# Ruby
-export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
-export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
-
-# colorls
-source $(dirname $(gem which colorls))/tab_complete.sh
-
 # Starship command prompt
 eval "$(starship init zsh)"
 
@@ -134,3 +127,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Fix Path to preferred order
+export PATH="/Users/mass/.pyenv/shims:/usr/local/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/Mass/.local/bin"
+
+# Ruby
+export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
+export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
+
+# colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
