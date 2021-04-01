@@ -26,7 +26,7 @@ case "${unameOut}" in
 esac
 export MACHINE
 
-# Set Dropbox and Dev Workspace folders (Mac)
+# Set Dropbox and Dev Workspace folders (Based on Mac computer names)
 export HOSTNAME="$(hostname)"
 
 if [[ "$HOSTNAME" == "dacomp5" ]]
@@ -45,7 +45,7 @@ fi
 # Source aliases
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
-  PROJECT_ROOT='/mnt/c/Users/Mass/Dev/GitHub/dotfiles'
+  PROJECT_ROOT=$DROPBOX_FOLDER'Dev/GitHub/dotfiles'
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-linux.sh"
   source "$PROJECT_ROOT/env/exports.sh"
@@ -136,3 +136,8 @@ export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
 
 # colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
+
+# linuxbrew
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+

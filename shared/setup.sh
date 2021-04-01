@@ -4,7 +4,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # Install binaries via apt
-source windows/apt.sh
+source linux/apt.sh
 
 # Set npm permissions and install npm binaries
 source shared/npm.sh

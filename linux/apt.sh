@@ -8,7 +8,7 @@ sudo apt install xclip -y
 sudo apt install youtube-dl -y
 
 # Node 
-curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install nodejs -y
 
 # MongoDB for Ubuntu 18.04. 

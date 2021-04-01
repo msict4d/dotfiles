@@ -11,7 +11,8 @@ esac
 
 if [[ "$MACHINE" == "Linux" ]]
   then 
-    source windows/setup.sh
+    source shared/setup.sh
+    source linux/linuxbrew.sh
 elif [[ "$MACHINE" == "Mac" ]]
   then 
     source mac/setup.sh
