@@ -12,6 +12,12 @@
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
 
+# Save which python
+export PYTHON=$(which python)
+
+# Save which virtualenv
+export VIRTUALENV=$(which virtualenv)
+
 # Increase Bash history size. Allow 32³ entries; the default is 500.
 export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
@@ -35,11 +41,14 @@ export MANPAGER='less -X';
 export GPG_TTY;
 GPG_TTY=$(tty);
 
+# Set Dropbox and Dev Workspace folders (Based on Mac computer names)
+export HOSTNAME="$(hostname)"
+
 # Current Dev Project folder
-export CURRENT_DEV_PROJECT=$DEV_WORKSPACE"Current_Project/";
+export CURRENT_DEV_PROJECT=$DEV_WORKSPACE"/Current_Project/";
 
 # Git repos folder
-export GITHUB_FOLDER=$DEV_FOLDER"GitHub/";
+export GITHUB_FOLDER=$DROPBOX_FOLDER"/GitHub/";
 
 # Save private binaries path
 export USER_PATH="$HOME/.local/bin";

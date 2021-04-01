@@ -26,15 +26,15 @@ case "${unameOut}" in
 esac
 export MACHINE
 
-# Set Dropbox and Dev Workspace folders (Based on Mac computer names)
+# Set Dropbox and Dev Workspace folders (Based on my Mac computers names)
 export HOSTNAME="$(hostname)"
 
 if [[ "$HOSTNAME" == "dacomp5" ]]
 then
     # Dropbox folder
-    export DROPBOX_FOLDER="/Volumes/Data/Dropbox/";
+    export DROPBOX_FOLDER="/Volumes/Data/Dropbox";
     # Dev Workspace folder for dev envs
-    export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace/"
+    export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace"
 else
     # Dropbox folder
     export DROPBOX_FOLDER=$HOME"/Dropbox/";
@@ -45,7 +45,7 @@ fi
 # Source aliases
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
-  PROJECT_ROOT=$DROPBOX_FOLDER'Dev/GitHub/dotfiles'
+  PROJECT_ROOT=$DROPBOX_FOLDER'/Dev/GitHub/dotfiles'
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-linux.sh"
   source "$PROJECT_ROOT/env/exports.sh"
@@ -67,30 +67,15 @@ fi
 
 # Python:
 
-# 2020-07-24
+# 2020-04-01
 # ---
 # virtualenvwrapper
 # --
 
-# Option 1 (uncomment to use): This will tell virtualenvwrapper to use the Homebrew installation of Python and
-# virtualenv. If you do not specify VIRTUALENVWRAPPER_PYTHON and  
-# VIRTUALENVWRAPPER_VIRTUALENV, you will need to install virtualenv and virtualenvwrapper
-# in each environment you plan to invoke virtualenvwrapper commands (e.g. mkvirtualenv).
-
-
-init_virtualenvwrapper() { # modified 2021-03-07
-  export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
-  export WORKON_HOME=$VENV_FOLDER/default
-  export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
-  export VIRTUALENVWRAPPER_PYTHON=$BREW_PREFIX/bin/python
-  export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-}
-
 init_virtualenvwrapper
 
+# source Homebrew's virtualenvwrapper
 source "/usr/local/bin/virtualenvwrapper.sh"
-
-# Option 2: Use pyenv and pyenv-virtualenvwrapper
 
 # set up pyenv #
 # --
