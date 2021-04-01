@@ -82,7 +82,7 @@ init_virtualenvwrapper() { # modified 2021-03-07
   export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
   export WORKON_HOME=$VENV_FOLDER/default
   export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+  export VIRTUALENVWRAPPER_PYTHON=$BREW_PREFIX/bin/python
   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 }
 
@@ -107,37 +107,50 @@ eval "$(pyenv init -)"
 eval $(thefuck --alias)
 
 # Starship command prompt
+# Change default starship.toml file location with STARSHIP_CONFIG environment variable
+export STARSHIP_CONFIG="$HOME/.starship";
 eval "$(starship init zsh)"
 
-# Anaconda3
-# export PATH="/usr/local/anaconda3/bin:$PATH"  # commented out by conda initialize
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+# Fix Path to preferred order on MAC
+if [[ "$MACHINE" == "Mac" ]];then
+    # userpath
+    export PATH="$USER_PATH:$PATH";
+
+    # Find brew utilities in /user/local/sbin
+    export PATH="/usr/local/sbin:$PATH";
+    
+    # Anaconda3
+    # export PATH="/usr/local/anaconda3/bin:$PATH"  # commented out by conda initialize
+
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/usr/local/anaconda3/bin:$PATH"
+        if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/usr/local/anaconda3/bin:$PATH"
+        fi
     fi
+    unset __conda_setup
+    # <<< conda initialize <<<
+
+    # Fix path to preferred order 
+    export PATH="$HOME/.pyenv/shims:/usr/local/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin"
+    
+    # Ruby
+    export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
+    export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
+elif [[ "$MACHINE" == "Linux" ]]; then
+    # linuxbrew
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# Fix Path to preferred order
-export PATH="/Users/mass/.pyenv/shims:/usr/local/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/Mass/.local/bin"
-
-# Ruby
-export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
-export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
 
 # colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
 
-# linuxbrew
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 

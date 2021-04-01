@@ -174,11 +174,12 @@ function killpid () {
   kill -9 "$@"
 }
 
+# Function to downloads a .mp3 file from YouTube
 function dlmp3 () {
   song="$1"
   youtube-dl -x --extract-audio --audio-format mp3 "ytsearch:$song"
 }
-# Function to downloads a .mp4 file
+# Function to downloads a .mp4 file from YouTube
 function dlmp4 () {
   video="$1"
   youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' "ytsearch:$video"
@@ -188,6 +189,8 @@ function dlmp4 () {
 
 # Pyenv helper functions (modified 2021-03-07):
 
+# Set the Shell to latest Python2 from pyenv.
+# Installs virtualenv and virtualenvwrapper if not already installed
 python2.latest() {
   pyenv shell 2.7.18
   pip install virtualenv virtualenvwrapper
@@ -195,6 +198,8 @@ python2.latest() {
   echo "Set Python version to $(pyversion)"
 }
 
+# Set the Shell to preferred Python3 from pyenv.
+# Installs virtualenv and virtualenvwrapper if not already installed
 python3.base() {
   pyenv shell 3.8.6
   pip install virtualenv virtualenvwrapper
@@ -202,6 +207,8 @@ python3.base() {
   echo "Set Python version to $(pyversion)"
 }
 
+# Set the Shell to latest Python3 from pyenv.
+# Installs virtualenv and virtualenvwrapper if not already installed
 # This function requires https://github.com/momo-lab/pyenv-install-latest
 python3.latest() {
   pyenv install-latest	
@@ -232,6 +239,9 @@ add.underscore.pyversion() {
 # pyenv and pyenv-virtualenvwrapper related functions
 # Redefines $WORKON_HOME to isolate virtual environments by python version:
 # TODO 2: Refactor to DRY with if statement
+
+# Activate a test env using latest Python3 from Pyenv
+# depends on python3.latest function
 py3_venv() {
   # default to Python 3
   python3.latest # change to python3.base if needed and source functions.sh and $SHELL to use
@@ -242,6 +252,8 @@ py3_venv() {
   echo "Done."
 }
 
+# Activate a test env using latest Python2 from Pyenv
+# depends on python2.latest function
 py2_venv() {
   # default to Python 2
   python2.latest

@@ -41,11 +41,5 @@ export CURRENT_DEV_PROJECT=$DEV_WORKSPACE"Current_Project/";
 # Git repos folder
 export GITHUB_FOLDER=$DEV_FOLDER"GitHub/";
 
-# userpath
-export PATH="$PATH:/Users/Mass/.local/bin";
-
-# Find brew utilities in /user/local/sbin
-export PATH="/usr/local/sbin:$PATH";
-
-# Change default starship.toml file location with STARSHIP_CONFIG environment variable
-export STARSHIP_CONFIG="$HOME/.starship";
+# Save private binaries path
+export USER_PATH="$HOME/.local/bin";
