@@ -245,10 +245,14 @@ add.underscore.pyversion() {
 py3_venv() {
   # default to Python 3
   python3.latest # change to python3.base if needed and source functions.sh and $SHELL to use
+  save_py_info # saving the python environment so that next created virtual env uses the same
   export WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
+  printf "=====\n"
   echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
+  printf "=====\n"
   echo "Creating test environment with $(pyversion)"
   mkvirtualenv test_"$(pyenv shell)"_venv
+  printf "=====\n"
   echo "Done."
 }
 
@@ -257,10 +261,14 @@ py3_venv() {
 py2_venv() {
   # default to Python 2
   python2.latest
+  save_py_info
   export WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
+  printf "=====\n"
   echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
+  printf "=====\n"
   echo "Creating test environment with $(pyversion)"
   mkvirtualenv test_"$(pyenv shell)"_venv
+  printf "=====\n"
   echo "Done."
 }
 
@@ -304,8 +312,9 @@ init_virtualenvwrapper() { # modified 2021-04-01
   export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENV
 }
 
-#Print python info
+# Print python info
 py_info() {
+  printf "=====\n"
   echo "Using:"
   echo "$(python --version)"
   echo "with:"
@@ -313,4 +322,13 @@ py_info() {
   echo "and:"
   echo "$(pip --version)"
   echo "type 'pip list' for a list of installed packages"
+  printf "=====\n"
+}
+
+# Save Python info
+save_py_info() {
+	local py_info=$(py_info)
+	export PYTHON=$(which python)
+	export VIRTUALENV=$(which virtualenv)
+	echo "$py_info"
 }

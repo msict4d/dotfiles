@@ -114,4 +114,6 @@ alias script='script -a terminal_session_$(timestamp)'
 alias record=script
 
 # print python info and launch python
-alias py='py_info && printf "===Starting R.E.P.L===\n" && python'
+alias py='save_py_info && printf "===Starting R.E.P.L===\n" && python'
+alias py2='python2.latest && py' 
+alias py3='python3.base && py' 
