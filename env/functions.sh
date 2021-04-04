@@ -314,14 +314,18 @@ init_virtualenvwrapper() { # modified 2021-04-01
 
 # Print python info
 py_info() {
+  local GREEN="\033[0;32m"
+  local NOCOLOR='\033[0m'
   printf "=====\n"
-  echo "Using:"
-  echo "$(python --version)"
-  echo "with:"
-  echo "$(virtualenv --version)"
-  echo "and:"
-  echo "$(pip --version)"
-  echo "type 'pip list' for a list of installed packages"
+  printf "${GREEN}Using: ${NOCOLOR}"
+  python --version
+  printf "${GREEN}with: ${NOCOLOR}"
+  virtualenv --version
+  printf "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}\n" 
+  pip show virtualenvwrapper | grep -e Version -e Location
+  printf "${GREEN}and: ${NOCOLOR}"
+  pip --version
+  printf "${GREEN}type 'pip list' for a list of installed packages${NOCOLOR}\n"
   printf "=====\n"
 }
 

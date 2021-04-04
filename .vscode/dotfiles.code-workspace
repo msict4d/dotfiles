@@ -1,13 +1,15 @@
 {
 	"folders": [
-		{
-			"path": "$HOME/Dropbox/Dev/GitHub/dotfiles"
+		{	// $PROJECTROOT
+			"path": "/Users/mass/Dropbox/Dev/GitHub/dotfiles",
+			// "path": "/Volumes/Data/Dropbox/Dev/GitHub/dotfiles"
 		}
 	],
-	"settings": {
-		"workbench.colorTheme": "Dracula Soft",
-		"workbench.iconTheme": "eq-material-theme-icons",
-		"workbench.preferredDarkColorTheme": "Dracula",
-		"terminal.integrated.splitCwd": "workspaceRoot"
-	}
+	"settings": 
+		{
+			"workbench.colorTheme": "Dracula Soft",
+			"workbench.iconTheme": "eq-material-theme-icons",
+			"workbench.preferredDarkColorTheme": "Dracula",
+			"terminal.integrated.splitCwd": "workspaceRoot"
+		}
 }

@@ -37,9 +37,9 @@ then
     export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace"
 else
     # Dropbox folder
-    export DROPBOX_FOLDER=$HOME"/Dropbox/";
+    export DROPBOX_FOLDER=$HOME"/Dropbox";
     # Dev Workspace folder for dev envs
-    export DEV_WORKSPACE=$HOME"/Dev_workspace/"; 
+    export DEV_WORKSPACE=$HOME"/Dev_workspace"; 
 fi
 
 # Source aliases

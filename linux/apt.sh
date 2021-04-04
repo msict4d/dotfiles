@@ -8,12 +8,12 @@ sudo apt install xclip -y
 sudo apt install youtube-dl -y
 
 # Python
-# Install [Python build dependencies](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) before attempting to install a new Python version:
+# Install [Python build dependencies](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) before attempting to install a new Python version with pyenv:
 	
 sudo apt update; sudo apt install --no-install-recommends make \
 build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
 libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev \
-libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
 # Node 
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
