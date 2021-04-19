@@ -162,3 +162,7 @@ brew install --cask suspicious-package
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# Security
+brew install mailtrackerblocker
+

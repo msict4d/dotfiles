@@ -19,7 +19,7 @@ What this does:
 2. Installs Oh my ZSH
 3. Installs Oh my ZSH plugins
 
-Open a new shell too see the changes.
+Open a new shell to see the changes.
 
 ## Run ./shared/clone-repos.sh
 

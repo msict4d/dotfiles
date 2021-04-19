@@ -1,5 +1,7 @@
 #!/bin/bash
-# Original file credits: https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c
+# Original base file credits: https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c
+# with some adaptations from [Nick Janetakis's dotfiles](https://github.com/nickjj/dotfiles.git)
+# however I added or modifief many things, please read carefully and adapt before using
 
 ##############################
 # SOURCED ALIAS'S AND SCRIPTS 
@@ -22,8 +24,8 @@ fi
 #######################################################
 
 # Expand the history size
-export HISTFILESIZE=10000
-export HISTSIZE=500
+export HISTFILESIZE=50000
+export HISTSIZE=50000
 
 # Don't put duplicate lines in the history and do not add lines that start with a space
 export HISTCONTROL=erasedups:ignoredups:ignorespace
@@ -443,6 +445,11 @@ trim()
 	echo -n "$var"
 }
 
+# Determine git branch.
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 #######################################################
 # Set the ultimate amazing command prompt
 #######################################################
@@ -566,5 +573,52 @@ function __setprompt
 }
 PROMPT_COMMAND='__setprompt'
 
+# Set a non-distracting prompt.
+# PS1='\[[01;32m\]\u@\h\[[00m\]:\[[01;34m\]\w\[[00m\] \[[01;33m\]$(parse_git_branch)\[[00m\]\$ '
+
+# If it's an xterm compatible terminal, set the title to user@host: dir.
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
 # thefuck
 eval "$(thefuck --alias)"
+
+# Enable asdf to manage various programming runtime versions.
+#   Requires: https://asdf-vm.com/#/
+source "$HOME"/.asdf/asdf.sh
+
+# Python:
+# ---
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# ---
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/mass/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/mass/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/mass/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/mass/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

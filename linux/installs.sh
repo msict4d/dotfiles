@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Dropbox
 cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 # Next, run the Dropbox daemon from the newly created .dropbox-dist folder.
