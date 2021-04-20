@@ -27,6 +27,8 @@ esac
 export MACHINE
 
 # Set Dropbox and Dev Workspace folders (Based on my Mac computers names)
+# Dropbox needs to be installed
+
 export HOSTNAME="$(hostname)"
 
 if [[ "$HOSTNAME" == "dacomp5" ]]
@@ -35,17 +37,21 @@ then
     export DROPBOX_FOLDER="/Volumes/Data/Dropbox";
     # Dev Workspace folder for dev envs
     export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace"
-else
+elif [[ "$MACHINE" == "Mac" ]]
+then
     # Dropbox folder
     export DROPBOX_FOLDER=$HOME"/Dropbox";
     # Dev Workspace folder for dev envs
-    export DEV_WORKSPACE=$HOME"/Dev_workspace"; 
+    export DEV_WORKSPACE=$HOME"/Dev_workspace";
+else
+    export DEV_FOLDER=$HOME"/Dev"
+    export DEV_WORKSPACE=$HOME"/Dev_workspace" 
 fi
 
 # Source aliases
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
-  PROJECT_ROOT=$DROPBOX_FOLDER'/Dev/GitHub/dotfiles'
+  PROJECT_ROOT=$DEV_FOLDER"/GitHub/dotfiles"
   source "$PROJECT_ROOT/env/aliases-shared.sh"
   source "$PROJECT_ROOT/env/aliases-linux.sh"
   source "$PROJECT_ROOT/env/exports.sh"
