@@ -40,7 +40,7 @@
 			//"colorScheme" : "Dracula",
             "cursorColor" : "#6de6f5",
             "cursorShape" : "vintage",
-            "fontFace" : "3270Medium NF",
+            "fontFace" : "3270Medium Nerd Font Mono",
             "fontSize" : 14,
             "padding" : "1, 1, 1, 1",
             "scrollbarState": "hidden",
