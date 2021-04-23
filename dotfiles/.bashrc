@@ -622,3 +622,6 @@ unset __conda_setup
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# z
+. /home/linuxbrew/.linuxbrew/etc/profile.d/z.sh

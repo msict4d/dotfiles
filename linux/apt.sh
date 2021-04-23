@@ -21,7 +21,10 @@ sudo apt-get update && sudo apt-get install -y \
   autojump \
   tree \
   xclip \
-  youtube-dl 
+  youtube-dl
+  build-essential \
+  procps \
+  file
 
 # Python
 # Install [Python build dependencies](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) before attempting to install a new Python version with pyenv:
@@ -80,6 +83,6 @@ sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev \
 #   && mv terraform ~/.local/bin && rm terraform.zip
 
 # ubuntu-make
-sudo add-apt-repository ppa:lyzardking/ubuntu-make
-sudo apt-get update
-sudo apt-get install ubuntu-make
+sudo add-apt-repository -y ppa:lyzardking/ubuntu-make
+sudo apt-get -y update
+sudo apt-get -y install ubuntu-make

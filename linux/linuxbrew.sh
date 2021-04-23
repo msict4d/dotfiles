@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-# Install Homebrew (if not installed)
+# Install Homebrew (if not installed). See https://docs.brew.sh/Homebrew-on-Linux
 echo "Installing Homebrew."
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Add Homebrew to PATH: (Only on Mac with ARM processors e.g M1)
-# echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/mass/.zprofile
-# eval $(/opt/homebrew/bin/brew shellenv)
+# Add Homebrew to PATH: 
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -20,6 +22,9 @@ BREW_PREFIX=$(brew --prefix)
 
 # Binaries
 brew install thefuck
+brew install z
+brew install lynx
+brew install howdoi
 
 # Python:
 brew install python3
