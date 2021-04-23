@@ -16,53 +16,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     MACHINE=Linux;;
-    Darwin*)    MACHINE=Mac;;
-    CYGWIN*)    MACHINE=Cygwin;;
-    MINGW*)     MACHINE=MinGw;;
-    *)          MACHINE="UNKNOWN:${unameOut}"
-esac
-export MACHINE
-
-# Set Dropbox and Dev Workspace folders (Based on my Mac computers names)
-# Dropbox needs to be installed
-
-export HOSTNAME="$(hostname)"
-
-if [[ "$HOSTNAME" == "dacomp5" ]]
-then
-    # Dropbox folder
-    export DROPBOX_FOLDER="/Volumes/Data/Dropbox";
-    # Dev Workspace folder for dev envs
-    export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace"
-elif [[ "$MACHINE" == "Mac" ]]
-then
-    # Dropbox folder
-    export DROPBOX_FOLDER=$HOME"/Dropbox";
-    # Dev Workspace folder for dev envs
-    export DEV_WORKSPACE=$HOME"/Dev_workspace";
-else
-    export DEV_FOLDER=$HOME"/Dev"
-    export DEV_WORKSPACE=$HOME"/Dev_workspace" 
-fi
-
-# Source aliases
-# For a full list of active aliases, run `alias`.
-if [[ "$MACHINE" == "Linux" ]];then
-  PROJECT_ROOT=$DEV_FOLDER"/GitHub/dotfiles"
-  source "$PROJECT_ROOT/env/aliases-shared.sh"
-  source "$PROJECT_ROOT/env/aliases-linux.sh"
-  source "$PROJECT_ROOT/env/exports.sh"
-  source "$PROJECT_ROOT/env/functions.sh"
-elif [[ "$MACHINE" == "Mac" ]]; then
-  PROJECT_ROOT=$DROPBOX_FOLDER"/Dev/GitHub/dotfiles"
-  source "$PROJECT_ROOT/env/aliases-shared.sh"
-  source "$PROJECT_ROOT/env/aliases-mac.sh"
-  source "$PROJECT_ROOT/env/exports.sh"
-  source "$PROJECT_ROOT/env/functions.sh"
-fi
+# Source shared .bash and .zshconfiguration (.rc)
+source $HOME/.rc
 
 # z - Fast navigation, see [this gist](https://gist.github.com/mischah/8149239)
 
@@ -71,40 +26,14 @@ if command -v brew >/dev/null 2>&1; then
 	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 fi
 
-# Python:
-
-# 2020-04-01
-# ---
-# virtualenvwrapper
-# --
-
-init_virtualenvwrapper
-
-# source Homebrew's virtualenvwrapper
-source "/usr/local/bin/virtualenvwrapper.sh"
-
-# set up pyenv #
-# --
-# Commenting out `eval "$(pyenv init -)"` and python related functions in 'env/functions.sh'
-# file should revert the system back to the system-wide installation of Python installed 
-# via Homebrew.
-
-eval "$(pyenv init -)"
-
-# default to latest Python 3 installed with Homebrew
-# python3.latest
-
-# WTF, I just discovered this
-eval $(thefuck --alias)
-
-# Starship command prompt
-# Change default starship.toml file location with STARSHIP_CONFIG environment variable
-export STARSHIP_CONFIG="$HOME/.starship";
-eval "$(starship init zsh)"
-
 
 # Fix Path to preferred order on MAC
 if [[ "$MACHINE" == "Mac" ]];then
+    # Starship command prompt
+    # Change default starship.toml file location with STARSHIP_CONFIG environment variable
+    export STARSHIP_CONFIG="$HOME/.starship";
+    eval "$(starship init zsh)"
+    
     # userpath
     export PATH="$USER_PATH:$PATH";
 

@@ -3,6 +3,9 @@
 # with some adaptations from [Nick Janetakis's dotfiles](https://github.com/nickjj/dotfiles.git)
 # however I added or modifief many things, please read carefully and adapt before using
 
+# Source shared .bash and .zshconfiguration (.rc)
+source $HOME/.rc
+
 ##############################
 # SOURCED ALIAS'S AND SCRIPTS 
 ##############################
