@@ -81,7 +81,7 @@ brew install jq
 brew install node
 
 # Python:
-brew install python3
+brew install python
 brew install pyenv # python version management
 brew install pyenv-virtualenvwrapper # python dependencies management wrapper
 

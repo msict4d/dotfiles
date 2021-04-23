@@ -24,7 +24,8 @@ sudo apt-get update && sudo apt-get install -y \
   youtube-dl
   build-essential \
   procps \
-  file
+  file \
+  gcc
 
 # Python
 # Install [Python build dependencies](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) before attempting to install a new Python version with pyenv:
@@ -47,7 +48,7 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 # asdf global nodejs 12.17.0
 
 # Install system dependencies for Ruby.
-sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev \
+sudo apt-get install -y autoconf bison libssl-dev libyaml-dev \
   libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
 
 # Install Ruby through ASDF.
@@ -58,10 +59,6 @@ sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev \
 # Node 
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install nodejs -y
-
-# Install system dependencies for Ruby.
-sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev \
-  libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
 
 # MongoDB for Ubuntu 18.04. 
 # Installation instructions: https://docs.mongodb.com/manual/administration/install-on-linux/

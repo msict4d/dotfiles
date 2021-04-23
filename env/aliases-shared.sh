@@ -1,11 +1,20 @@
 #!/bin/bash
 
 # Easier navigation:
+alias home='cd ~'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias -- -="cd -"
+
+# alias chmod commands
+alias mx='chmod a+x'
+alias 000='chmod -R 000'
+alias 644='chmod -R 644'
+alias 666='chmod -R 666'
+alias 755='chmod -R 755'
+alias 777='chmod -R 777'
 
 # Detect which `ls` flavor is in use
 # "ls --color > /dev/null 2>&1;" then returns true after brew install coreutils.
