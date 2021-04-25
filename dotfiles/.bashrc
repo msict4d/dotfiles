@@ -460,26 +460,13 @@ xterm*|rxvt*)
     ;;
 esac
 
-# thefuck
-eval "$(thefuck --alias)"
-
 # Enable asdf to manage various programming runtime versions.
 #   Requires: https://asdf-vm.com/#/
 source "$HOME"/.asdf/asdf.sh
 
-# Python:
 # ---
 
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# ---
-
+# Anaconda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/mass/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

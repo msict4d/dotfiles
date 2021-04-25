@@ -21,52 +21,59 @@ then
     export DROPBOX_FOLDER="/Volumes/Data/Dropbox";
     # Dev Workspace folder for dev envs
     export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace"
+    # Git repos folder
+    export GITHUB_FOLDER=$DROPBOX_FOLDER"/Dev/GitHub";
 elif [[ "$MACHINE" == "Mac" ]]
 then
     # Dropbox folder
     export DROPBOX_FOLDER=$HOME"/Dropbox";
     # Dev Workspace folder for dev envs
     export DEV_WORKSPACE=$HOME"/Dev_workspace";
+    # Git repos folder
+    export GITHUB_FOLDER=$DROPBOX_FOLDER"/Dev/GitHub"; 
 else
-    export DEV_FOLDER=$HOME"/Dev"
-    export DEV_WORKSPACE=$HOME"/Dev_workspace" 
+    export DEV_WORKSPACE=$HOME"/Dev_workspace"
+    # Git repos folder
+    export GITHUB_FOLDER=$DEV_WORKSPACE"/GitHub"; 
 fi
 
 # Source aliases
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
-  PROJECT_ROOT=$DEV_FOLDER"/GitHub/dotfiles"
+  PROJECT_ROOT=$GITHUB_FOLDER"/dotfiles"
   source "$PROJECT_ROOT/env/aliases-shared.sh"
+  source "$PROJECT_ROOT/env/exports-shared.sh"
   source "$PROJECT_ROOT/env/aliases-linux.sh"
+  source "$PROJECT_ROOT/env/exports-linux.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 elif [[ "$MACHINE" == "Mac" ]]; then
   PROJECT_ROOT=$DROPBOX_FOLDER"/Dev/GitHub/dotfiles"
   source "$PROJECT_ROOT/env/aliases-shared.sh"
+  source "$PROJECT_ROOT/env/exports-shared.sh"
   source "$PROJECT_ROOT/env/aliases-mac.sh"
-  source "$PROJECT_ROOT/env/exports.sh"
+  source "$PROJECT_ROOT/env/exports-mac.sh"
   source "$PROJECT_ROOT/env/functions.sh"
 fi
 
 # Python:
-# ---
-# virtualenvwrapper
-# --
-
-init_virtualenvwrapper
-
-# source Homebrew's virtualenvwrapper
-source "/usr/local/bin/virtualenvwrapper.sh"
-
 # set up pyenv #
 # --
 # Commenting out `eval "$(pyenv init -)"` and python related functions in 'env/functions.sh'
 # file should revert the system back to the system-wide installation of Python installed 
 # via Homebrew.
 
-eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
-# default to latest Python 3 installed with Homebrew
-# python3.latest
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-# WTF, I just discovered this
+# pyenv-virtualenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# Initialize virtualenvwrapper
+init_virtualenvwrapper
+
+# WTF
 eval $(thefuck --alias)

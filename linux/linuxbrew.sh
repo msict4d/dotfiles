@@ -29,6 +29,7 @@ brew install howdoi
 # Python:
 brew install python
 brew install pyenv # python version management
+brew install pyenv-virtualenv
 brew install pyenv-virtualenvwrapper # python dependencies management wrapper
 
 # Remove outdated versions from the cellar.

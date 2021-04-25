@@ -64,13 +64,23 @@ if [[ "$MACHINE" == "Mac" ]];then
     # Ruby
     export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
     export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
+
+    # source Homebrew's virtualenvwrapper
+    source "/usr/local/bin/virtualenvwrapper.sh"
+
+    # colorls
+    source $(dirname $(gem which colorls))/tab_complete.sh
+
 elif [[ "$MACHINE" == "Linux" ]]; then
     # linuxbrew
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    # source Homebrew's virtualenvwrapper
+    source "/home/linuxbrew/.linuxbrew/bin/virtualenvwrapper.sh"
 fi
 
-# colorls
-source $(dirname $(gem which colorls))/tab_complete.sh
+# default to latest Python 3 installed with Homebrew
+# python3.latest
+
 
 
 
