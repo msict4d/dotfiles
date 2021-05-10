@@ -17,15 +17,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Source shared .bash and .zshconfiguration (.rc)
-source $HOME/.rc
-
-# z - Fast navigation, see [this gist](https://gist.github.com/mischah/8149239)
-
-if command -v brew >/dev/null 2>&1; then
-	# Load rupa's z if installed
-	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
-fi
-
+source $HOME/.init
 
 # Fix Path to preferred order on MAC
 if [[ "$MACHINE" == "Mac" ]];then
@@ -77,6 +69,8 @@ elif [[ "$MACHINE" == "Linux" ]]; then
     # source Homebrew's virtualenvwrapper
     source "/home/linuxbrew/.linuxbrew/bin/virtualenvwrapper.sh"
 fi
+
+source $HOME/.utils
 
 # default to latest Python 3 installed with Homebrew
 # python3.latest
