@@ -29,17 +29,25 @@ else
   fi
 fi
 
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
-
-# List all files colorized in long format, excluding . and ..
-alias la="ls -lAF ${colorflag}"
-
-# List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
-# Always use color output for `ls`
-alias ls="command ls ${colorflag}"
+# Aliases for multiple directory listing commands
+alias l="ls -lF ${colorflag}" # List all files colorized in long format
+alias lc="ls -lAF ${colorflag}" # List all files colorized in long format, excluding . and ..
+alias lod="ls -lF ${colorflag} | grep --color=never '^d'" # List only directories
+alias ls="command ls ${colorflag}" # Always use color output for `ls`
+alias la='ls -Alh' # show hidden files
+alias lcx='ls -aFh --color=always' # add colors and file type extensions
+alias lx='ls -lXBh' # sort by extension
+alias lsz='ls -lSrh' # sort by size
+alias lct='ls -lcrh' # sort by change time
+alias lat='ls -lurh' # sort by access time
+alias lr='ls -lRh' # recursive ls
+alias ldt='ls -ltrh' # sort by date
+alias lm='ls -alh |more' # pipe through 'more'
+alias lw='ls -xAh' # wide listing format
+alias ll='ls -Fls' # long listing format
+alias labc='ls -lap' #alphabetical sort
+alias lf="ls -l | egrep -v '^d'" # files only
+alias ldir="ls -l | egrep '^d'" # directories only
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
