@@ -54,12 +54,12 @@ export USER_PATH="$HOME/.local/bin";
 
 # Option 2 (uncomment to use): Will use pyenv-virtualenvwrapper and pyenv-virtualenv if available
 # or any other globally available version
-init_virtualenvwrapper() { # modified 2021-04-01
-  # set custom virtual environments location	
-  export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
-  # set virtualenvwrapper env variables
-  export WORKON_HOME=$VENV_FOLDER
-  export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
-  export VIRTUALENVWRAPPER_PYTHON=$PYTHON
-  export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENV
-}
+# init_virtualenvwrapper() { # modified 2021-04-01
+#   # set custom virtual environments location	
+#   export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
+#   # set virtualenvwrapper env variables
+#   export WORKON_HOME=$VENV_FOLDER
+#   export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
+#   export VIRTUALENVWRAPPER_PYTHON=$PYTHON
+#   export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENV
+# }
