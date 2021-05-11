@@ -25,6 +25,7 @@ brew install thefuck
 brew install z
 brew install lynx
 brew install howdoi
+brew install tldr
 
 # Python:
 brew install python
