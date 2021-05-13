@@ -420,7 +420,7 @@ pwdtail ()
 #--- Network
 
 # Show current network information
-netinfo ()
+netinfo () # TODO 5: Refactor to work on MAC
 {
 	echo "--------------- Network Information ---------------"
 	/sbin/ifconfig | awk /'inet addr/ {print $2}'
