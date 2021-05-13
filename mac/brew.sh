@@ -77,7 +77,7 @@ brew install nvie/tap/git-toolbelt
 brew install gmp
 brew install grep
 brew install jq
-
+brew install howdoi
 brew install node
 
 # Python:

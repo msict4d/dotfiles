@@ -49,9 +49,6 @@ if [[ "$MACHINE" == "Mac" ]];then
     fi
     unset __conda_setup
     # <<< conda initialize <<<
-
-    # Fix path to preferred order 
-    export PATH="$HOME/.pyenv/shims:/usr/local/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin"
     
     # Ruby
     export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
@@ -72,8 +69,8 @@ fi
 
 source $HOME/.utils
 
-# default to latest Python 3 installed with Homebrew
-# python3.latest
+# default to base Python 3 installed with Homebrew
+# python3.base
 
 
 
