@@ -10,20 +10,12 @@ case "${unameOut}" in
 esac
 export MACHINE
 
-# Set Dropbox and Dev Workspace folders (Based on my Mac computers names)
-# Dropbox needs to be installed
+# Set Dropbox and Dev Workspace folders
+# Dropbox needs to be installed on Mac
 
 export HOSTNAME="$(hostname)"
 
-if [[ "$HOSTNAME" == "dacomp5" ]]
-then
-    # Dropbox folder
-    export DROPBOX_FOLDER="/Volumes/Data/Dropbox";
-    # Dev Workspace folder for dev envs
-    export DEV_WORKSPACE="/Volumes/Data/Dev_Workspace"
-    # Git repos folder
-    export GITHUB_FOLDER=$DROPBOX_FOLDER"/Dev/GitHub";
-elif [[ "$MACHINE" == "Mac" ]]
+if [[ "$MACHINE" == "Mac" ]]
 then
     # Dropbox folder
     export DROPBOX_FOLDER=$HOME"/Dropbox";
