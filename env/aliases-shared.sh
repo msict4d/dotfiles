@@ -124,7 +124,7 @@ alias rm=trash
 # alias gulp='npx gulp'
 
 # Check opened TCP Ports
-alias openedports="sudo netstat -plunt" # TODO 3: FIX 'unknown or uninstrumented protocol error' 
+alias openedports="sudo netstat -plunt" # TODO 3: FIX 'unknown or uninstrumented protocol error'
 
 # Record terminal session in a text file using `script`
 alias script='script -a terminal_session_$(timestamp)'
@@ -132,5 +132,6 @@ alias record=script
 
 # print python info and launch python
 alias py='save_py_info && printf "===Starting R.E.P.L===\n" && python'
-alias py2='python2.latest && py' 
-alias py3='python3.base && py' 
+alias py3='save_py3_info && printf "===Starting R.E.P.L===\n" && python3'
+alias pyv2='python2.latest && py'
+alias pyv3='python3.base && py3'

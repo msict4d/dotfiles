@@ -1,8 +1,13 @@
-# Python:
+#!/bin/bash
+
+## Python:
+# source Homebrew's virtualenvwrapper
+source "$brew_prefix/bin/virtualenvwrapper.sh"
+
 # set up pyenv #
 # --
 # Commenting out `eval "$(pyenv init -)"` and python related functions in 'env/functions.sh'
-# file should revert the system back to the system-wide installation of Python installed 
+# file should revert the system back to the system-wide installation of Python installed
 # via Homebrew.
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -23,3 +28,6 @@ if command -v brew >/dev/null 2>&1; then
 	# Load rupa's z if installed
 	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 fi
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
