@@ -204,20 +204,20 @@ function dlmp4 () {
 ### timestamp()
 # Just echoes the formatted time
 timestamp() {
-  date "+%Y-%m-%d_%H:%M:%S" 
+  date "+%Y-%m-%d_%H:%M:%S"
 }
 
-#--- Python 
+#--- Python
 
 # virtualenvwrapper initializer
 init_virtualenvwrapper() { # modified 2021-04-01
-  # set custom virtual environments location	
+  # set custom virtual environments location
   export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
   # set virtualenvwrapper env variables
   export WORKON_HOME=$VENV_FOLDER
   export PROJECT_HOME=$DEV_WORKSPACE/Python/Projects
-  export VIRTUALENVWRAPPER_PYTHON=$PYTHON
-  export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENV
+  export VIRTUALENVWRAPPER_PYTHON=$HOMEBREW_PYTHON
+  export VIRTUALENVWRAPPER_VIRTUALENV=$HOMEBREW_VIRTUALENV
 }
 
 # Pyenv helper functions (modified 2021-03-07):
@@ -244,7 +244,7 @@ python3.base() {
 # Installs virtualenv and virtualenvwrapper if not already installed
 # This function requires https://github.com/momo-lab/pyenv-install-latest
 python3.latest() {
-  pyenv install-latest	
+  pyenv install-latest
   pyenv shell "$(pyenv install-latest --print)"
   pip install virtualenv virtualenvwrapper
   pyenv virtualenvwrapper
@@ -311,13 +311,34 @@ py_info() {
   local NOCOLOR='\033[0m'
   printf "=====\n"
   printf "${GREEN}Using: ${NOCOLOR}"
-  python --version
+  which python
+  printf "${GREEN}Version: ${NOCOLOR}"
+  $(which python) --version
   printf "${GREEN}with: ${NOCOLOR}"
   virtualenv --version
-  printf "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}\n" 
+  printf "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}\n"
   pip show virtualenvwrapper | grep -e Version -e Location
   printf "${GREEN}and: ${NOCOLOR}"
   pip --version
+  printf "${GREEN}type 'pip list' for a list of installed packages${NOCOLOR}\n"
+  printf "=====\n"
+}
+
+# Print python3 info
+py3_info() {
+  local GREEN="\033[0;32m"
+  local NOCOLOR='\033[0m'
+  printf "=====\n"
+  printf "${GREEN}Using: ${NOCOLOR}"
+  which python3
+  printf "${GREEN}Version: ${NOCOLOR}"
+  $(which python3) --version
+  printf "${GREEN}with: ${NOCOLOR}"
+  virtualenv --version
+  printf "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}\n"
+  pip3 show virtualenvwrapper | grep -e Version -e Location
+  printf "${GREEN}and: ${NOCOLOR}"
+  pip3 --version
   printf "${GREEN}type 'pip list' for a list of installed packages${NOCOLOR}\n"
   printf "=====\n"
 }
@@ -328,6 +349,14 @@ save_py_info() {
 	export PYTHON=$(which python)
 	export VIRTUALENV=$(which virtualenv)
 	echo "$py_info"
+}
+
+# Save Python info
+save_py3_info() {
+	local py3_info=$(py3_info)
+	export PYTHON=$(which python3)
+	export VIRTUALENV=$(which virtualenv)
+	echo "$py3_info"
 }
 
 #--- Text Editors

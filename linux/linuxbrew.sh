@@ -5,7 +5,7 @@ echo "Installing Homebrew."
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Add Homebrew to PATH: 
+# Add Homebrew to PATH:
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
@@ -30,8 +30,8 @@ brew install tldr
 # Python:
 brew install python
 brew install pyenv # python version management
-brew install pyenv-virtualenv
-brew install pyenv-virtualenvwrapper # python dependencies management wrapper
+brew install virtualenv
+brew install virtualenvwrapper
 
 # Remove outdated versions from the cellar.
 brew cleanup

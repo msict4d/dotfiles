@@ -82,15 +82,15 @@ brew install node
 
 # Python:
 brew install python
+#brew install anaconda
 brew install pyenv # python version management
-brew install pyenv-virtualenvwrapper # python dependencies management wrapper
+brew install virtualenv
+brew install virtualenvwrapper
 
 brew install ruby
 brew install shellcheck
 brew install ssh-copy-id
 brew install tmux
-
-
 
 # Utilities
 # brew install ffmpeg

@@ -25,13 +25,17 @@ if [[ "$MACHINE" == "Mac" ]];then
     # Change default starship.toml file location with STARSHIP_CONFIG environment variable
     export STARSHIP_CONFIG="$HOME/.starship";
     eval "$(starship init zsh)"
-    
+
     # userpath
     export PATH="$USER_PATH:$PATH";
 
     # Find brew utilities in /user/local/sbin
     export PATH="/usr/local/sbin:$PATH";
-    
+
+    # Ruby
+    export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
+    export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
+
     # Anaconda3
     # export PATH="/usr/local/anaconda3/bin:$PATH"  # commented out by conda initialize
 
@@ -49,13 +53,6 @@ if [[ "$MACHINE" == "Mac" ]];then
     fi
     unset __conda_setup
     # <<< conda initialize <<<
-    
-    # Ruby
-    export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
-    export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
-
-    # source Homebrew's virtualenvwrapper
-    source "/usr/local/bin/virtualenvwrapper.sh"
 
     # colorls
     source $(dirname $(gem which colorls))/tab_complete.sh
@@ -63,8 +60,6 @@ if [[ "$MACHINE" == "Mac" ]];then
 elif [[ "$MACHINE" == "Linux" ]]; then
     # linuxbrew
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    # source Homebrew's virtualenvwrapper
-    source "/home/linuxbrew/.linuxbrew/bin/virtualenvwrapper.sh"
 fi
 
 source $HOME/.utils
