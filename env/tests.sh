@@ -44,7 +44,7 @@ function isEmpty() {
   if [ "$(ls -A "$dir")" ]; then
     echo "The directory contains files"
     return 1
-  else 
+  else
     echo "The directory is empty (or doesn't exist on this path)"
     return 0
   fi
@@ -71,7 +71,7 @@ here() {
   printf '%q\n' "$here"
 }
 
-# function to backup current dev project 
+# function to backup current dev project
 ### save_dev_project()
 # Note:Backup directory must exist and be empty!
 save_dev_project() {
@@ -94,28 +94,4 @@ workon_dev_project() {
   echo "Copied the content of dev project to ${workspace}"
   cd "$workspace"
   echo "Switched to $(workspace) folder"
-}
-
-# function to remove duplicates in and echo $PATH
-### no_dupes_path()
-# Note: Inspired from https://www.linuxjournal.com/content/removing-duplicate-path-entries
-no_dupes_path() {
-  local no_dupes_path
-  no_dupes_path=$(echo $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
-  echo "$no_dupes_path"
-}
-
-# function to echo $PATH one entry per line
-### no_dupes_path()
-# Note: Inspired from https://www.linuxjournal.com/content/removing-duplicate-path-entries
-show_path(){
-  awk -v RS=: '{print}' <<< "$PATH"
-}
-
-# function to set $PATH with no dupes and echo one entry per line
-### no_dupes_path()
-# Note: Inspired from https://www.linuxjournal.com/content/removing-duplicate-path-entries
-set_no_dupes_path() {
-  export PATH=$(no_dupes_path)
-  show_path
 }
