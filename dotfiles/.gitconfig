@@ -204,6 +204,7 @@
 
 [user]
 	name = Massamba Sow
-	email = mass.sow@gmail.com
+	email = mass.sowd@gmail.com
+	
 [credential]
 	helper = store
