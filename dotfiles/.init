@@ -33,19 +33,17 @@ fi
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
   PROJECT_ROOT=$GITHUB_FOLDER"/dotfiles"
-  source "$PROJECT_ROOT/env/aliases-shared.sh"
-  source "$PROJECT_ROOT/env/exports-shared.sh"
   source "$PROJECT_ROOT/env/aliases-linux.sh"
   source "$PROJECT_ROOT/env/exports-linux.sh"
-  source "$PROJECT_ROOT/env/functions.sh"
 elif [[ "$MACHINE" == "Mac" ]]; then
   PROJECT_ROOT=$DROPBOX_FOLDER"/Dev/GitHub/dotfiles"
-  source "$PROJECT_ROOT/env/aliases-shared.sh"
-  source "$PROJECT_ROOT/env/exports-shared.sh"
   source "$PROJECT_ROOT/env/aliases-mac.sh"
   source "$PROJECT_ROOT/env/exports-mac.sh"
-  source "$PROJECT_ROOT/env/functions.sh"
 fi
+
+source "$PROJECT_ROOT/env/aliases-shared.sh"
+source "$PROJECT_ROOT/env/exports-shared.sh"
+source "$PROJECT_ROOT/env/functions.sh"
 
 # Initialize virtualenvwrapper
 init_virtualenvwrapper

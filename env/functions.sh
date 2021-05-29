@@ -209,11 +209,37 @@ timestamp() {
 init_virtualenvwrapper() { # modified 2021-04-01
   # set custom virtual environments location
   export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
+  echo "Initializing Virtualenvwrapper"
   # set virtualenvwrapper env variables
   export WORKON_HOME=$VENV_FOLDER
   export PROJECT_HOME=$DEV_WORKSPACE/Python/Projects
-  export VIRTUALENVWRAPPER_PYTHON=$HOMEBREW_PYTHON
-  export VIRTUALENVWRAPPER_VIRTUALENV=$HOMEBREW_VIRTUALENV
+  if [ -z "${HOMEBREW_PREFIX+x}" ] || [ -v "$(brew --prefix)" ]; then
+      # Save which python
+      export PYTHON=$(which python3)
+      echo "Homebrew Prefix is unset. Defaulting to $PYTHON";
+      export VIRTUALENVWRAPPER_PYTHON=$PYTHON
+      if [ -v "$(which virtualenv)" ]; then
+        # Save which virtualenv
+        export VIRTUALENV=$(which virtualenv) 
+        echo "Virtualenv is set to '$VIRTUALENV'"; 
+        export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENV
+        printf "Attempting to source virtualenvwrapper:\n"
+        source "$(which virtualenvwrapper.sh)"
+      else
+        echo "Virtualenv not set"
+      fi
+  else
+      #Save Homebrew Python3
+      export HOMEBREW_PYTHON="$(brew --prefix)/bin/python3"
+      echo "Python is set to '$HOMEBREW_PYTHON'"; 
+      export VIRTUALENVWRAPPER_PYTHON=$HOMEBREW_PYTHON
+      #Save Homebrew virtualenv
+      export HOMEBREW_VIRTUALENV="$(brew --prefix)/bin/virtualenv"
+      echo "Virtualenv is set to '$HOMEBREW_VIRTUALENV'"; 
+      export VIRTUALENVWRAPPER_VIRTUALENV=$HOMEBREW_VIRTUALENV
+      # source Homebrew's virtualenvwrapper
+      source "$(brew --prefix)/bin/virtualenvwrapper.sh"
+  fi
 }
 
 # Pyenv helper functions (modified 2021-03-07):
