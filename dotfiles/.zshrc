@@ -16,9 +16,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Source shared .bash and .zshconfiguration (.rc)
-source $HOME/.init
-
 # Fix Path to preferred order on MAC
 if [[ "$MACHINE" == "Mac" ]];then
     # Starship command prompt
@@ -62,11 +59,9 @@ elif [[ "$MACHINE" == "Linux" ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-source $HOME/.utils
-
 # default to base Python 3 installed with Homebrew
 # python3.base
 
-
+source $HOME/.utils
 
 

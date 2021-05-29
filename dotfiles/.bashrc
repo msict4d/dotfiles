@@ -3,9 +3,6 @@
 # with some adaptations from [Nick Janetakis's dotfiles](https://github.com/nickjj/dotfiles.git)
 # however I added or modifief many things, please read carefully and adapt before using
 
-# Source shared .bash and .zsh configuration (.init)
-source $HOME/.init
-
 ##############################
 # SOURCED ALIAS'S AND SCRIPTS 
 ##############################
