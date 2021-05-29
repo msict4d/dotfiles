@@ -1,19 +1,7 @@
 #!/bin/bash
 
-# Save which python
-export PYTHON=$(which python3)
-
-#Save Homebrew Python3
-export HOMEBREW_PYTHON=$brew_prefix"/bin/python3"
-
-# Save which virtualenv
-export VIRTUALENV=$(which virtualenv)
-
-#Save Homebrew virtualenv
-export HOMEBREW_VIRTUALENV=$brew_prefix"/bin/virtualenv"
-
 # Current Dev Project folder
-export CURRENT_DEV_PROJECT=$DEV_WORKSPACE"/Current_Project/";
+export CURRENT_DEV_PROJECT=$DEV_WORKSPACE"/Current_Project/"
 
 # Set the default editor
 export EDITOR=nano

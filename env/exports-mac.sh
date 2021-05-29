@@ -37,29 +37,3 @@ GPG_TTY=$(tty);
 
 # Save private binaries path
 export USER_PATH="$HOME/.local/bin";
-
-# 2020-04-01
-# Option 1 (uncomment to use): This will tell virtualenvwrapper to use the Homebrew installation of Python and
-# virtualenv. If you do not specify VIRTUALENVWRAPPER_PYTHON and  
-# VIRTUALENVWRAPPER_VIRTUALENV, you will need to install virtualenv and virtualenvwrapper
-# in each environment you plan to invoke virtualenvwrapper commands (e.g. mkvirtualenv).
-
-# init_virtualenvwrapper() { # modified 2021-03-07
-#   export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
-#   export WORKON_HOME=$VENV_FOLDER/default
-#   export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
-#   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-#   export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-# }
-
-# Option 2 (uncomment to use): Will use pyenv-virtualenvwrapper and pyenv-virtualenv if available
-# or any other globally available version
-# init_virtualenvwrapper() { # modified 2021-04-01
-#   # set custom virtual environments location	
-#   export VENV_FOLDER=$DEV_WORKSPACE/Python/Virtualenvs/
-#   # set virtualenvwrapper env variables
-#   export WORKON_HOME=$VENV_FOLDER
-#   export PROJECT_HOME=$DROPBOX_FOLDER/Dev/Python/Projects
-#   export VIRTUALENVWRAPPER_PYTHON=$PYTHON
-#   export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENV
-# }

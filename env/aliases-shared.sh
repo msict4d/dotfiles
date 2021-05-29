@@ -135,3 +135,6 @@ alias py='save_py_info && printf "===Starting R.E.P.L===\n" && python'
 alias py3='save_py3_info && printf "===Starting R.E.P.L===\n" && python3'
 alias pyv2='python2.latest && py'
 alias pyv3='python3.base && py3'
+
+# dry run a ZSH login shell and show what is done.
+alias zshl='zsh -xl'

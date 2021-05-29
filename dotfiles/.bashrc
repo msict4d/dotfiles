@@ -3,9 +3,6 @@
 # with some adaptations from [Nick Janetakis's dotfiles](https://github.com/nickjj/dotfiles.git)
 # however I added or modifief many things, please read carefully and adapt before using
 
-# Source shared .bash and .zsh configuration (.init)
-source $HOME/.init
-
 ##############################
 # SOURCED ALIAS'S AND SCRIPTS 
 ##############################
@@ -248,30 +245,5 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
-# Enable asdf to manage various programming runtime versions.
-#   Requires: https://asdf-vm.com/#/
-source "$HOME"/.asdf/asdf.sh
-
-# ---
-
-# Anaconda
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mass/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/mass/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/mass/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/mass/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source "$HOME/.utils"
