@@ -16,9 +16,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Source shared .bash and .zshconfiguration (.rc)
-source $HOME/.init
-
 # Fix Path to preferred order on MAC
 if [[ "$MACHINE" == "Mac" ]];then
     # Starship command prompt
@@ -36,24 +33,6 @@ if [[ "$MACHINE" == "Mac" ]];then
     export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH" # binaries installed by homebrew gem
     export PATH="/usr/local/opt/ruby/bin:$PATH" # homebrew ruby
 
-    # Anaconda3
-    # export PATH="/usr/local/anaconda3/bin:$PATH"  # commented out by conda initialize
-
-    # >>> conda initialize >>>
-    # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-            . "/usr/local/anaconda3/etc/profile.d/conda.sh"
-        else
-            export PATH="/usr/local/anaconda3/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
-    # <<< conda initialize <<<
-
     # colorls
     source $(dirname $(gem which colorls))/tab_complete.sh
 
@@ -62,11 +41,9 @@ elif [[ "$MACHINE" == "Linux" ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-source $HOME/.utils
-
 # default to base Python 3 installed with Homebrew
 # python3.base
 
-
+source $HOME/.utils
 
 

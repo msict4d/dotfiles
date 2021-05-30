@@ -8,6 +8,9 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# Source shared .bash and .zshconfiguration (.rc)
+source $HOME/.init
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -26,11 +29,7 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-## Custom settings
-
 # Adding pyenv to path here for Bash config after seeing this 
-# [WARNING: pyenv init - no longer sets PATH. Issue #1906](https://github.com/pyenv/pyenv/issues/1906) 
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+# [WARNING: pyenv init - no longer sets PATH. Issue #1906](https://github.com/pyenv/pyenv/issues/1906)
+# See function definitions in ../env/functions.sh 
+set_pyenv
