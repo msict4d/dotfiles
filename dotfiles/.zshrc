@@ -1,3 +1,6 @@
+# Source shared .bash and .zshconfiguration (.rc)
+source $HOME/.init
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -44,6 +47,7 @@ fi
 # default to base Python 3 installed with Homebrew
 # python3.base
 
+# Source utilities pyenv, anaconda, thefuck, z, fzf...
 source $HOME/.utils
 
 

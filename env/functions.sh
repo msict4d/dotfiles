@@ -213,12 +213,12 @@ init_virtualenvwrapper() { # modified 2021-04-01
   # set virtualenvwrapper env variables
   export WORKON_HOME=$VENV_FOLDER
   export PROJECT_HOME=$DEV_WORKSPACE/Python/Projects
-  if [ -z "${HOMEBREW_PREFIX+x}" ] || [ -v "$(brew --prefix)" ]; then
+  if [ -z "${HOMEBREW_PREFIX+x}" ] && [ ! "$(brew --prefix)" ]; then
       # Save which python
       export PYTHON=$(which python3)
-      echo "Homebrew Prefix is unset. Defaulting to $PYTHON";
+      echo "Homebrew Prefix is unset. Defaulting to '$PYTHON'";
       export VIRTUALENVWRAPPER_PYTHON=$PYTHON
-      if [ -v "$(which virtualenv)" ]; then
+      if [ "$(which virtualenv)" ]; then
         # Save which virtualenv
         export VIRTUALENV=$(which virtualenv) 
         echo "Virtualenv is set to '$VIRTUALENV'"; 

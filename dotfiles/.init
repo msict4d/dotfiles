@@ -29,7 +29,7 @@ else
     export GITHUB_FOLDER=$DEV_WORKSPACE"/GitHub"; 
 fi
 
-# Source aliases
+# Source aliases and exports
 # For a full list of active aliases, run `alias`.
 if [[ "$MACHINE" == "Linux" ]];then
   PROJECT_ROOT=$GITHUB_FOLDER"/dotfiles"

@@ -2,18 +2,6 @@
 
 ## Python:
 
-# # set up pyenv #
-# # --
-# # Commenting out `eval "$(pyenv init -)"` and python related functions in 'env/functions.sh'
-# # file should revert the system back to the system-wide installation of Python installed
-# # via Homebrew.
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# pyenv-virtualenv
-if which pyenv-virtualenv-init >/dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
 # Anaconda3
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -30,13 +18,28 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# # set up pyenv #
+# # --
+
+# See function definition in ../env/functions.sh
+set_pyenv
+
+# # Commenting out `eval "$(pyenv init -)"` and python related functions in 'env/functions.sh'
+# # file should revert the system back to the system-wide installation of Python installed
+# # via Homebrew.
+
+eval "$(pyenv init -)"
+
+# pyenv-virtualenv
+if which pyenv-virtualenv-init >/dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
 # WTF
 eval "$(thefuck --alias)"
 
 # z - Fast navigation, see [this gist](https://gist.github.com/mischah/8149239)
 if command -v brew >/dev/null 2>&1; then
   # Load rupa's z if installed
-  [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+  [ -f "$(brew --prefix)"/etc/profile.d/z.sh ] && source "$(brew --prefix)"/etc/profile.d/z.sh
 fi
 
 if [[ "$MACHINE" == "Linux" ]];then
