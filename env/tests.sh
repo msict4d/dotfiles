@@ -79,7 +79,7 @@ save_dev_project() {
 
   if (isEmpty "$BACKUP"); then
     echo "Backing up"
-    dsync $CURRENT_DEV_PROJECT "$BACKUP" || { echo "Failure to backup to $BACKUP"; exit; }
+    dsync "$CURRENT_DEV_PROJECT" "$BACKUP" || { echo "Failure to backup to $BACKUP"; exit; }
     echo "Backup done!"
   else
     echo "Destination folder not empty"
@@ -89,7 +89,7 @@ save_dev_project() {
 
 workon_dev_project() {
   mkdir "$CURRENT_DEV_PROJECT$(here)"
-  cp -R "$PWD"/ $CURRENT_DEV_PROJECT"$(here)"
+  cp -R "$PWD"/ "$CURRENT_DEV_PROJECT$(here)"
   workspace=$CURRENT_DEV_PROJECT"$(here)"
   echo "Copied the content of dev project to ${workspace}"
   cd "$workspace"

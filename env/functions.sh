@@ -296,41 +296,51 @@ add.underscore.pyversion() {
 }
 
 # pyenv and pyenv-virtualenvwrapper related functions
-# Redefines $WORKON_HOME to isolate virtual environments by python version:
-# TODO 2: Refactor to DRY with if statement
 
-# Activate a test env using latest Python3 from Pyenv
-# depends on python3.latest function
-py3_venv() {
-  # default to Python 3
-  python3.base # change to python3.base if needed and source functions.sh and $SHELL to use
+# Redefines $WORKON_HOME to isolate virtual environments by python version:
+### py_venv()
+# This function takes one parameter:
+# $1 is the name of the virtual environment to create
+# -- Echoes python related and virtual environment related info
+py_venv() {
   save_py_info # saving the python environment so that next created virtual env uses the same
   WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
   export WORKON_HOME
   printf "=====\n"
-  printf "\nVirtual environments will be created using $(pyversion) in:\n %s/" "$WORKON_HOME"
+  printf "\nVirtual environments will be created using $(pyversion) in:\n '%s' \n" "$WORKON_HOME"
   printf "=====\n"
   echo "Creating test environment with $(pyversion)"
-  mkvirtualenv test_"$(pyenv shell)"_venv
+  if [ "$1" ]; then
+    mkvirtualenv "$1_venv"
+  else
+    mkvirtualenv "test_$(add.underscore.pyversion)_venv"
+  fi
   printf "=====\n"
   echo "Done."
 }
 
+# Activate a test env using latest Python3 from Pyenv
+### py3_venv()
+# This function takes one parameter:
+# $1 is the name of the virtual environment to create
+# depends on python3.latest function
+py3_venv() {
+  # default to Python 3
+  project_name=$1
+  python3.base # change to python3.base if needed and source functions.sh and $SHELL to use
+  py_venv "$project_name"
+}
+
 # Activate a test env using latest Python2 from Pyenv
+### py3_venv()
+# This function takes one parameter:
+# $1 is the name of the virtual environment to create
 # depends on python2.latest function
 py2_venv() {
   # default to Python 2
+  project_name="$1"
   python2.latest
-  save_py_info
-  WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
-  export WORKON_HOME
-  printf "=====\n"
-  printf "\nVirtual environments will be created using $(pyversion) in:\n %s/" "$WORKON_HOME"
-  printf "=====\n"
-  echo "Creating test environment with $(pyversion)"
-  mkvirtualenv test_"$(pyenv shell)"_venv
-  printf "=====\n"
-  echo "Done."
+  py_venv "$project_name"
 }
 
 # Print python info
