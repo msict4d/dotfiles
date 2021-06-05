@@ -62,19 +62,19 @@ function dataurl() {
 # Extracts any archive(s) (if unp isn't installed)
 extract() {
   for archive in $*; do
-    if [ -f $archive ]; then
-      case $archive in
-      *.tar.bz2) tar xvjf $archive ;;
-      *.tar.gz) tar xvzf $archive ;;
-      *.bz2) bunzip2 $archive ;;
-      *.rar) rar x $archive ;;
-      *.gz) gunzip $archive ;;
-      *.tar) tar xvf $archive ;;
-      *.tbz2) tar xvjf $archive ;;
-      *.tgz) tar xvzf $archive ;;
-      *.zip) unzip $archive ;;
-      *.Z) uncompress $archive ;;
-      *.7z) 7z x $archive ;;
+    if [ -f "$archive" ]; then
+      case "$archive" in
+      *.tar.bz2) tar xvjf "$archive" ;;
+      *.tar.gz) tar xvzf "$archive" ;;
+      *.bz2) bunzip2 "$archive" ;;
+      *.rar) rar x "$archive" ;;
+      *.gz) gunzip "$archive" ;;
+      *.tar) tar xvf "$archive" ;;
+      *.tbz2) tar xvjf "$archive" ;;
+      *.tgz) tar xvzf "$archive" ;;
+      *.zip) unzip "$archive" ;;
+      *.Z) uncompress "$archive" ;;
+      *.7z) 7z x "$archive" ;;
       *) echo "don't know how to extract '$archive'..." ;;
       esac
     else
@@ -112,7 +112,7 @@ cpp() {
 				printf "]\r"
 			}
 		}
-	END { print "" }' total_size=$(stat -c '%s' "${1}") count=0
+	END { print "" }' total_size="$(stat -c '%s' "${1}")" count=0
 }
 
 # Compare original and gzipped file size
@@ -126,7 +126,7 @@ function gz() {
 
 # Normalize `open` across Linux, macOS, and Windows.
 # This is needed to make the `o` function (see below) cross-platform.
-if [ ! $(uname -s) = 'Darwin' ]; then
+if [ ! "$(uname -s)" = 'Darwin' ]; then
   if grep -q Microsoft /proc/version; then
     # Ubuntu on Windows using the Linux subsystem
     alias open='explorer.exe'
@@ -156,18 +156,18 @@ function tre() {
 # Copy and go to the directory
 cpg() {
   if [ -d "$2" ]; then
-    cp $1 $2 && cd $2
+    cp "$1" "$2" && cd "$2"
   else
-    cp $1 $2
+    cp "$1" "$2"
   fi
 }
 
 # Move and go to the directory
 mvg() {
   if [ -d "$2" ]; then
-    mv $1 $2 && cd $2
+    mv "$1" "$2" && cd "$2"
   else
-    mv $1 $2
+    mv "$1" "$2"
   fi
 }
 
@@ -215,12 +215,14 @@ init_virtualenvwrapper() { # modified 2021-04-01
   export PROJECT_HOME=$DEV_WORKSPACE/Python/Projects
   if [ -z "${HOMEBREW_PREFIX+x}" ] && [ ! "$(brew --prefix)" ]; then
       # Save which python
-      export PYTHON=$(which python3)
+      PYTHON=$(which python3)
+      export PYTHON
       echo "Homebrew Prefix is unset. Defaulting to '$PYTHON'";
       export VIRTUALENVWRAPPER_PYTHON=$PYTHON
       if [ "$(which virtualenv)" ]; then
         # Save which virtualenv
-        export VIRTUALENV=$(which virtualenv) 
+        VIRTUALENV=$(which virtualenv)
+        export VIRTUALENV 
         echo "Virtualenv is set to '$VIRTUALENV'"; 
         export VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENV
         printf "Attempting to source virtualenvwrapper:\n"
@@ -230,11 +232,13 @@ init_virtualenvwrapper() { # modified 2021-04-01
       fi
   else
       #Save Homebrew Python3
-      export HOMEBREW_PYTHON="$(brew --prefix)/bin/python3"
+      HOMEBREW_PYTHON="$(brew --prefix)/bin/python3"
+      export HOMEBREW_PYTHON
       echo "Python is set to '$HOMEBREW_PYTHON'"; 
       export VIRTUALENVWRAPPER_PYTHON=$HOMEBREW_PYTHON
       #Save Homebrew virtualenv
-      export HOMEBREW_VIRTUALENV="$(brew --prefix)/bin/virtualenv"
+      HOMEBREW_VIRTUALENV="$(brew --prefix)/bin/virtualenv"
+      export HOMEBREW_VIRTUALENV
       echo "Virtualenv is set to '$HOMEBREW_VIRTUALENV'"; 
       export VIRTUALENVWRAPPER_VIRTUALENV=$HOMEBREW_VIRTUALENV
       # source Homebrew's virtualenvwrapper
@@ -301,9 +305,10 @@ py3_venv() {
   # default to Python 3
   python3.base # change to python3.base if needed and source functions.sh and $SHELL to use
   save_py_info # saving the python environment so that next created virtual env uses the same
-  export WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
+  WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
+  export WORKON_HOME
   printf "=====\n"
-  echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
+  printf "\nVirtual environments will be created using $(pyversion) in:\n %s/" "$WORKON_HOME"
   printf "=====\n"
   echo "Creating test environment with $(pyversion)"
   mkvirtualenv test_"$(pyenv shell)"_venv
@@ -317,9 +322,10 @@ py2_venv() {
   # default to Python 2
   python2.latest
   save_py_info
-  export WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
+  WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
+  export WORKON_HOME
   printf "=====\n"
-  echo "\nVirtual environments will be created using $(pyversion) in:\n $WORKON_HOME/"
+  printf "\nVirtual environments will be created using $(pyversion) in:\n %s/" "$WORKON_HOME"
   printf "=====\n"
   echo "Creating test environment with $(pyversion)"
   mkvirtualenv test_"$(pyenv shell)"_venv
@@ -332,17 +338,17 @@ py_info() {
   local GREEN="\033[0;32m"
   local NOCOLOR='\033[0m'
   printf "=====\n"
-  printf "${GREEN}Using: ${NOCOLOR}"
+  echo "${GREEN}Using: ${NOCOLOR}"
   which python
-  printf "${GREEN}Version: ${NOCOLOR}"
+  echo "${GREEN}Version: ${NOCOLOR}"
   $(which python) --version
-  printf "${GREEN}with: ${NOCOLOR}"
+  echo "${GREEN}with: ${NOCOLOR}"
   virtualenv --version
-  printf "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}\n"
+  echo "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}"
   pip show virtualenvwrapper | grep -e Version -e Location
-  printf "${GREEN}and: ${NOCOLOR}"
+  echo "${GREEN}and: ${NOCOLOR}"
   pip --version
-  printf "${GREEN}type 'pip list' for a list of installed packages${NOCOLOR}\n"
+  echo "${GREEN}type 'pip list' for a list of installed packages${NOCOLOR}"
   printf "=====\n"
 }
 
@@ -351,33 +357,39 @@ py3_info() {
   local GREEN="\033[0;32m"
   local NOCOLOR='\033[0m'
   printf "=====\n"
-  printf "${GREEN}Using: ${NOCOLOR}"
+  echo "${GREEN}Using: ${NOCOLOR}"
   which python3
-  printf "${GREEN}Version: ${NOCOLOR}"
+  echo "${GREEN}Version: ${NOCOLOR}"
   $(which python3) --version
-  printf "${GREEN}with: ${NOCOLOR}"
+  echo "${GREEN}with: ${NOCOLOR}"
   virtualenv --version
-  printf "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}\n"
+  echo "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}"
   pip3 show virtualenvwrapper | grep -e Version -e Location
-  printf "${GREEN}and: ${NOCOLOR}"
+  echo "${GREEN}and: ${NOCOLOR}"
   pip3 --version
-  printf "${GREEN}type 'pip list' for a list of installed packages${NOCOLOR}\n"
+  echo "${GREEN}type 'pip list' for a list of installed packages${NOCOLOR}"
   printf "=====\n"
 }
 
 # Save Python info
 save_py_info() {
-  local py_info=$(py_info)
-  export PYTHON=$(which python)
-  export VIRTUALENV=$(which virtualenv)
+  local py_info
+  py_info=$(py_info)
+  PYTHON=$(which python)
+  export PYTHON
+  VIRTUALENV=$(which virtualenv)
+  export VIRTUALENV
   echo "$py_info"
 }
 
 # Save Python info
 save_py3_info() {
-  local py3_info=$(py3_info)
-  export PYTHON=$(which python3)
-  export VIRTUALENV=$(which virtualenv)
+  local py3_info
+  py3_info=$(py3_info)
+  PYTHON=$(which python3)
+  export PYTHON
+  VIRTUALENV=$(which virtualenv)
+  export VIRTUALENV
   echo "$py3_info"
 }
 
@@ -416,8 +428,8 @@ trim() {
 
 # Create and go to the directory
 mkdirg() {
-  mkdir -p $1
-  cd $1
+  mkdir -p "$1"
+  cd "$1"
 }
 
 # Create a new directory and enter it
@@ -572,7 +584,7 @@ fi
 # Note: Inspired from https://www.linuxjournal.com/content/removing-duplicate-path-entries
 no_dupes_path() {
   local no_dupes_path
-  no_dupes_path=$(echo $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
+  no_dupes_path=$(echo "$PATH" | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
   echo "$no_dupes_path"
 }
 
@@ -587,7 +599,8 @@ show_path() {
 ### no_dupes_path()
 # Note: Inspired from https://www.linuxjournal.com/content/removing-duplicate-path-entries
 set_no_dupes_path() {
-  export PATH=$(no_dupes_path)
+  PATH=$(no_dupes_path)
+  export PATH
   show_path
 }
 
