@@ -44,6 +44,3 @@ fi
 source "$PROJECT_ROOT/env/aliases-shared.sh"
 source "$PROJECT_ROOT/env/exports-shared.sh"
 source "$PROJECT_ROOT/env/functions.sh"
-
-# Initialize virtualenvwrapper
-init_virtualenvwrapper
