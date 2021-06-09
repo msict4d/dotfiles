@@ -3,6 +3,9 @@
 # Current Dev Project folder
 export CURRENT_DEV_PROJECT=$DEV_WORKSPACE"/Current_Project/"
 
+# Python Projects
+export PYTHON_PROJECT_DIR=$DEV_WORKSPACE"/Python/"
+
 # Set the default editor
 export EDITOR=nano
 alias nano='edit'
