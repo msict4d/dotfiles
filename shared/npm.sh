@@ -15,3 +15,10 @@ sudo npm i -g standard
 sudo npm i -g svgo
 sudo npm i -g trash-cli
 sudo npm i -g wikit # Wikipedia summaries in the terminal
+
+# News
+# https://www.npmjs.com/package/newsroom-cli
+sudo npm i -g newsroom-cli
+# https://github.com/shogunpurple/clinews
+# Go to https://newsapi.org/register URL and register a free account to get the API key.
+sudo npm i -g clinews
