@@ -61,3 +61,9 @@ if [ -n "$BASH_VERSION" ]; then
   # fzf
   [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 fi
+
+# clinews
+# Go to https://newsapi.org/register URL and register a free account to get the API key.
+# $CLINEWS_API_KEY is declared in env/keys.sh
+
+export IN_API_KEY="$CLINEWS_API_KEY"
