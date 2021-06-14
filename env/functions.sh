@@ -215,7 +215,7 @@ init_virtualenvwrapper() { # modified 2021-04-01
   export PROJECT_HOME=$DEV_WORKSPACE/Python/Projects
   if [ -z "${HOMEBREW_PREFIX+x}" ] && [ ! "$(brew --prefix)" ]; then
       # Save which python
-      PYTHON=$(which python3)
+      PYTHON=$(which python)
       export PYTHON
       echo "Homebrew Prefix is unset. Defaulting to '$PYTHON'";
       export VIRTUALENVWRAPPER_PYTHON=$PYTHON
@@ -231,8 +231,9 @@ init_virtualenvwrapper() { # modified 2021-04-01
         echo "Virtualenv not set"
       fi
   else
-      #Save Homebrew Python3
-      HOMEBREW_PYTHON="$(brew --prefix)/bin/python3"
+      # Save Homebrew Python
+      # See https://docs.brew.sh/Homebrew-and-Python
+      HOMEBREW_PYTHON="$(brew --prefix)/opt/python/libexec/bin/python" # unversioned symlink for python
       export HOMEBREW_PYTHON
       echo "Python is set to '$HOMEBREW_PYTHON'"; 
       export VIRTUALENVWRAPPER_PYTHON=$HOMEBREW_PYTHON
@@ -304,15 +305,14 @@ add.underscore.pyversion() {
 # -- Echoes python related and virtual environment related info
 py_venv() {
   save_py_info # saving the python environment so that next created virtual env uses the same
-  WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
-  export WORKON_HOME
   printf "=====\n"
-  printf "\nVirtual environments will be created using $(pyversion) in:\n '%s' \n" "$WORKON_HOME"
+  printf "Virtual environments will be created using $(pyversion) in:\n '%s' \n" "$WORKON_HOME"
   printf "=====\n"
-  echo "Creating test environment with $(pyversion)"
   if [ "$1" ]; then
+    echo "Creating $1 environment with $(pyversion)"
     mkvirtualenv "$1_venv"
   else
+    echo "Creating test environment with $(pyversion)"
     mkvirtualenv "test_$(add.underscore.pyversion)_venv"
   fi
   printf "=====\n"
@@ -362,24 +362,6 @@ py_info() {
   printf "=====\n"
 }
 
-# Print python3 info
-py3_info() {
-  local GREEN="\033[0;32m"
-  local NOCOLOR='\033[0m'
-  printf "=====\n"
-  echo "${GREEN}Using: ${NOCOLOR}"
-  which python3
-  echo "${GREEN}Version: ${NOCOLOR}"
-  $(which python3) --version
-  echo "${GREEN}with: ${NOCOLOR}"
-  virtualenv --version
-  echo "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}"
-  pip3 show virtualenvwrapper | grep -e Version -e Location
-  echo "${GREEN}and: ${NOCOLOR}"
-  pip3 --version
-  echo "${GREEN}type 'pip list' for a list of installed packages${NOCOLOR}"
-  printf "=====\n"
-}
 
 # Save Python info
 save_py_info() {
@@ -387,20 +369,21 @@ save_py_info() {
   py_info=$(py_info)
   PYTHON=$(which python)
   export PYTHON
-  VIRTUALENV=$(which virtualenv)
-  export VIRTUALENV
+  PIP=$(which pip)
+  export PIP
+  set_venv
   echo "$py_info"
 }
 
-# Save Python info
-save_py3_info() {
-  local py3_info
-  py3_info=$(py3_info)
-  PYTHON=$(which python3)
-  export PYTHON
+
+# Set virtualenv and virtualenvwrapper helper fn
+set_venv() {
+  # virtualenv
   VIRTUALENV=$(which virtualenv)
-  export VIRTUALENV
-  echo "$py3_info"
+  # virtualenvwrapper
+  WORKON_HOME=$VENV_FOLDER$(add.underscore.pyversion)
+  VIRTUALENVWRAPPER_PYTHON=$PYTHON
+  VIRTUALENVWRAPPER_VIRTUALENV=$VIRTUALENV
 }
 
 #--- Text Editors

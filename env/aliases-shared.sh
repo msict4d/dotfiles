@@ -138,3 +138,7 @@ alias pyv3='python3.base && py3'
 
 # dry run a ZSH login shell and show what is done.
 alias zshl='zsh -xl'
+
+# Really delete
+alias del='sudo rm -f'
+
