@@ -26,6 +26,7 @@ brew install z
 brew install lynx
 brew install howdoi
 brew install tldr
+brew install xclip
 
 # Python:
 brew install python

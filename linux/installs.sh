@@ -12,3 +12,8 @@ cd nerd-fonts
 sudo ./install.sh Hack
 sudo ./install.sh FiraCode
 cd $HOME && rm -rf nerd-fonts
+
+# Notes
+sudo curl \
+  -L https://raw.githubusercontent.com/da5atar/notes-1/master/notes \
+  -o /usr/local/bin/notes && sudo chmod +x /usr/local/bin/notes
