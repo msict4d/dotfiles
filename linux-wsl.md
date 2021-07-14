@@ -30,7 +30,7 @@ What this does:
 3. Installs npm clis (see [npm.sh](shared/npm.sh) for a list of installed clis)
 4. Create symlinks for dotfiles
 
-## Run ./zsh-install.sh
+## Run ./install-zsh.sh
 
 What this does:
 

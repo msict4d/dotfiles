@@ -26,7 +26,8 @@ sudo apt-get update && sudo apt-get install -y \
   procps \
   file \
   gcc \
-  snapd
+  snapd \
+  flatpak
 
 # Python
 # Install [Python build dependencies](https://github.com/pyenv/pyenv/wiki#suggested-build-environment) before attempting to install a new Python version with pyenv:
