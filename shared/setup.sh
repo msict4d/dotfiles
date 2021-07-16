@@ -25,13 +25,6 @@ echo "===================="
 echo "Done running shared/npm.sh"
 echo "====================\n"
 
-# Create symlinks for dotfiles
-echo "===================="
-echo "Linking dotfiles"
-echo "====================\n"
-
-source link-dotfiles.sh
-
 # Install apps and binaries with Brew
 echo "===================="
 echo "Running linux/linuxbrew.sh"
@@ -42,6 +35,35 @@ source linux/linuxbrew.sh
 echo "===================="
 echo "Done running linux/linuxbrew.sh"
 echo "====================\n"
+
+# Install apps and binaries with Snap
+echo "===================="
+echo "Running linux/snap.sh"
+echo "====================\n"
+
+source linux/snap.sh
+
+echo "===================="
+echo "Done running linux/snap.sh"
+echo "====================\n"
+
+# Install apps and binaries with Flatpak
+echo "===================="
+echo "Running linux/flatpak.sh"
+echo "====================\n"
+
+source linux/flatpak.sh
+
+echo "===================="
+echo "Done running linux/flatpak.sh"
+echo "====================\n"
+
+# Create symlinks for dotfiles
+echo "===================="
+echo "Linking dotfiles"
+echo "====================\n"
+
+source link-dotfiles.sh
 
 echo "===================="
 echo "Setup is done!"

@@ -26,11 +26,12 @@ may want to modify some of these things, such as version numbers.
 What this does: 
 
 1. Updates apt and binaries. (See [`apt.sh`](linux/apt.sh))
-2. Sets npm permissions
-3. Installs npm clis (see [npm.sh](shared/npm.sh) for a list of installed clis)
-4. Create symlinks for dotfiles
+2. Installs binaries and apps with `snap` and `flatpak` (see [snap.sh](linux/snap.sh) and [flatpak.sh](linux/flatpak.sh) for a list of installed items)
+3. Sets npm permissions
+4. Installs npm clis (see [npm.sh](shared/npm.sh) for a list of installed clis)
+5. Create symlinks for dotfiles
 
-## Run ./zsh-install.sh
+## Run ./install-zsh.sh
 
 What this does:
 
