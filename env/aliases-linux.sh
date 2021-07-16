@@ -109,10 +109,3 @@ alias c="$cdrive"
 # alias d="cd $cdrive/Dropbox"
 alias dl="cd $cdrive/Downloads"
 alias dt="cd $cdrive/Desktop"
-
-# #########
-# Python
-# #########
-
-# alias python=python3
-# alias pip=pip3
