@@ -214,8 +214,13 @@ init_virtualenvwrapper() { # modified 2021-04-01
   export WORKON_HOME=$VENV_FOLDER
   export PROJECT_HOME=$DEV_WORKSPACE/Python/Projects
   if [ -z "${HOMEBREW_PREFIX+x}" ] && [ ! "$(brew --prefix)" ]; then
-      # Save which python
-      PYTHON=$(which python)
+      if [ "$(which python)" ]; then
+        PYTHON=$(which python)
+        echo "Setting PYTHON to $(which python)"
+      else
+        PYTHON=$(which python3)
+        echo "Setting PYTHON to $(which python3)"
+      fi    
       export PYTHON
       echo "Homebrew Prefix is unset. Defaulting to '$PYTHON'";
       export VIRTUALENVWRAPPER_PYTHON=$PYTHON
@@ -235,6 +240,7 @@ init_virtualenvwrapper() { # modified 2021-04-01
       # See https://docs.brew.sh/Homebrew-and-Python
       HOMEBREW_PYTHON="$(brew --prefix)/opt/python/libexec/bin/python" # unversioned symlink for python
       export HOMEBREW_PYTHON
+      export PYTHON=$HOMEBREW_PYTHON
       echo "Python is set to '$HOMEBREW_PYTHON'"; 
       export VIRTUALENVWRAPPER_PYTHON=$HOMEBREW_PYTHON
       #Save Homebrew virtualenv
