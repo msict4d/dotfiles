@@ -17,3 +17,7 @@ cd $HOME && rm -rf nerd-fonts
 sudo curl \
   -L https://raw.githubusercontent.com/da5atar/notes-1/master/notes \
   -o /usr/local/bin/notes && sudo chmod +x /usr/local/bin/notes
+
+# Tera
+brew tap shinokada/tera
+brew install tera

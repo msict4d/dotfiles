@@ -355,9 +355,10 @@ py_info() {
   local NOCOLOR='\033[0m'
   printf "=====\n"
   echo "${GREEN}Using: ${NOCOLOR}"
-  which python
+  # which python
+  echo "$PYTHON"
   echo "${GREEN}Version: ${NOCOLOR}"
-  $(which python) --version
+  $PYTHON --version
   echo "${GREEN}with: ${NOCOLOR}"
   virtualenv --version
   echo "${GREEN}Virtualenvwrapper Info: ${NOCOLOR}"
