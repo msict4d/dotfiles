@@ -149,3 +149,5 @@ alias zshl='zsh -xl'
 # Really delete
 alias del='sudo rm -f'
 
+# Radiohead
+alias radio='tera'
