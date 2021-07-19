@@ -114,5 +114,6 @@ alias dt="cd $cdrive/Desktop"
 # Python
 # #########
 
-# alias python=python3
-# alias pip=pip3
+# Set python alias is python is not found
+alias python="$PYTHON"
+alias pip='${PYTHON} -m pip'

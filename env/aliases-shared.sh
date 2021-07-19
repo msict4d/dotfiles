@@ -129,7 +129,7 @@ alias openedports="sudo netstat -plunt" # TODO 3: FIX 'unknown or uninstrumented
 # Record terminal session in a text file using `script`
 alias script='script -a terminal_session_$(timestamp)'
 alias record=script
-
+ 
 # print python info and launch python
 alias py='save_py_info && printf "===Starting R.E.P.L===\n" && python'
 alias py3='save_py3_info && printf "===Starting R.E.P.L===\n" && python3'
@@ -142,3 +142,5 @@ alias zshl='zsh -xl'
 # Really delete
 alias del='sudo rm -f'
 
+# Radiohead
+alias radio='tera'
