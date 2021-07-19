@@ -115,9 +115,5 @@ alias dt="cd $cdrive/Desktop"
 # #########
 
 # Set python alias is python is not found
-if [ -z "$(which python)" ]; then
-    alias python=$PYTHON
-    PIP='${PYTHON} -m pip'
-    export PIP
-    alias pip='$PIP'
-fi
+alias python="$PYTHON"
+alias pip='${PYTHON} -m pip'
